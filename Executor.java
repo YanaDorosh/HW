@@ -15,7 +15,7 @@ public class Executor {
 		System.out.println("========");
 		
 		Transport t = new Transport("Transport", "Transportation of goods", 500, 500, 0 );
-		s.printInfo();
+		t.printInfo();
 		int loading = t.getTransport() ;
 		System.out.println("Transport loading tons: " + loading);
 		System.out.println("========");
