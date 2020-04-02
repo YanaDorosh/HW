@@ -5,4 +5,6 @@ public interface INaval {
 
     public int hulls();
 
+    public String getInfoNoval();
+
 }
