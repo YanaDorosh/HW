@@ -25,12 +25,9 @@ public class Civil extends Boat implements IRiver {
 
     @Override
     public String getInfoCivil() {
-        String sizeStr = String.valueOf(getSize());
-        String speedStr = String.valueOf(getSpeed());
-        String infoBoat = getType() + "    " + "Size: " + sizeStr + "   Speed: " + speedStr;
         String infoRiver = "    Kilomiters:  " + String.valueOf(distance()) + "   Used like: " + isRiver
                 + "   Passengers: " + passengers;
-        return infoBoat + infoRiver;
+        return getInfoBoat() + infoRiver;
     }
 
 

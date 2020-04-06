@@ -5,6 +5,7 @@ public abstract class Boat {
     private String type;
     private int size;
     private int speed;
+    private final int KNOTE = 1852;
 
     public Boat() {
 
@@ -25,8 +26,16 @@ public abstract class Boat {
     }
 
     public int getSpeed() {
-        return this.speed;
+        return this.speed * KNOTE;
     }
+
+    public final String getInfoBoat() {
+        String sizeStr = String.valueOf(getSize());
+        String speedStr = String.valueOf(getSpeed());
+        String infoBoat = getType() + "   " + "Size: " + sizeStr + "  Speed: " + speedStr;
+        return infoBoat;
+    }
+
 
 }
 

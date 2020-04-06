@@ -33,11 +33,8 @@ public class Service extends Boat implements INaval {
 
     @Override
     public String getInfoNoval() {
-        String sizeStr = String.valueOf(getSize());
-        String speedStr = String.valueOf(getSpeed());
-        String infoBoat = getType() + "    " + "Size: " + sizeStr + "   Speed: " + speedStr;
         String infoNaval = "    Hulls: " + String.valueOf(hulls()) + "   Power: " + String.valueOf(getPower());
-        return infoBoat + infoNaval;
+        return getInfoBoat() + infoNaval;
     }
 
 }

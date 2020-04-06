@@ -15,14 +15,6 @@ public class SailingBoat extends Boat implements IAutomotive {
         super(type, size, speed);
     }
 
-    public void setSailingsNumber(int value) {
-        this.sailings = value;
-    }
-
-    public int getSailingsNumber() {
-        return this.sailings;
-    }
-
     @Override
     public int sailings() {
         return this.sailings;
@@ -30,12 +22,9 @@ public class SailingBoat extends Boat implements IAutomotive {
 
     @Override
     public String getInfoAutomotive() {
-        String sizeStr = String.valueOf(getSize());
-        String speedStr = String.valueOf(getSpeed());
-        String infoBoat = getType() + "    " + "Size: " + sizeStr + "   Speed: " + speedStr;
-        String infoSailing = "    Sailing's number: " + String.valueOf(sailings)
+        String infoSailing = "    Sailing's number: " + String.valueOf(sailings())
                 + "  Automotive's type: " + isType;
-        return infoBoat + infoSailing;
+        return getInfoBoat() + infoSailing;
     }
 
     @Override

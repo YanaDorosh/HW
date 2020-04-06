@@ -10,7 +10,7 @@ public class Navy {
         this.rangeOfBattle = rangeOfBattle;
     }
 
-    public IRangeOfBattle  getRangeOfBattle() {
+    public IRangeOfBattle getRangeOfBattle() {
         return this.rangeOfBattle;
     }
 
