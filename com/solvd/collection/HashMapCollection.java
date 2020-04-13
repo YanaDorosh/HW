@@ -1,5 +1,6 @@
 package com.solvd.collection;
 
+import com.solvd.ships.civil.Civil;
 import com.solvd.ships.civil.SailingBoat;
 
 import java.util.HashMap;
@@ -10,32 +11,34 @@ public class HashMapCollection {
 
     Map<Integer, SailingBoat> sailingBoatMap;
 
+    /**
+     * Member of the class for HashMap key
+     */
+
+    int key = 0;
 
     HashMapCollection() {
         sailingBoatMap = new HashMap<Integer, SailingBoat>();
-
     }
 
     public void setSailigBoat(SailingBoat sailingBoat) {
-        int key = 0;
-        key++;
         sailingBoatMap.put(key, sailingBoat);
+        key++;
     }
 
-
-    public Map<Integer, SailingBoat> getSailingBoat() {
+    public Map<Integer, SailingBoat> getSailingBoatMap() {
         return sailingBoatMap;
     }
 
-    public void removeSailingBoat(int index) {
-        sailingBoatMap.remove(index);
+    public void removeSailingBoat(Integer key) {
+        sailingBoatMap.remove(key);
     }
 
 
     public static void getHashMapMenu() {
         Scanner sc = new Scanner(System.in);
 
-        System.out.println("enter the ship type");
+        System.out.println("enter the type of Sailing Boat");
         String type = sc.next();
 
         System.out.println("enter size");
@@ -55,10 +58,11 @@ public class HashMapCollection {
         System.out.println("enter 0 to add information; press 1 to display the collection; press 2 to exit the menu");
         int menu1 = sc.nextInt();
 
+
         switch (menu1) {
             case 0:
 
-                System.out.println("enter the ship type");
+                System.out.println("enter the type of Sailing Boat");
                 String type1 = sc.next();
 
                 System.out.println("enter size");
@@ -71,7 +75,6 @@ public class HashMapCollection {
                 int sail1 = sc.nextInt();
 
                 SailingBoat sailingBoat1 = new SailingBoat(type1, size1, speed1, sail1);
-
                 hashMapCollection.setSailigBoat(sailingBoat1);
 
                 System.out.println("for deleting press 0; press 1 to display the collection;  press 2 to exit the menu");
@@ -124,9 +127,10 @@ public class HashMapCollection {
     }
 
     public static void printResults(HashMapCollection hashMapCollection) {
-        for (SailingBoat sailingBoat : hashMapCollection.getSailingBoat()) {
+        for (SailingBoat sailingBoat : hashMapCollection.getSailingBoatMap().values()) {
             System.out.println(sailingBoat.getInfoAutomotive());
         }
     }
+
 
 }

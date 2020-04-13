@@ -12,9 +12,9 @@ public class Civil extends Boat implements IRiver {
 
     }
 
-    public Civil(String type, int size, int speed) {
+    public Civil(String type, int size, int speed, int passengers) {
         super(type, size, speed);
-
+        this.passengers = passengers;
     }
 
 
@@ -25,8 +25,7 @@ public class Civil extends Boat implements IRiver {
 
     @Override
     public String getInfoCivil() {
-        String infoRiver = "    Kilomiters:  " + String.valueOf(distance()) + "   Used like: " + isRiver
-                + "   Passengers: " + passengers;
+        String infoRiver = "    Kilomiters:  " + String.valueOf(distance()) + "   Used like: " + isRiver;
         return getInfoBoat() + infoRiver;
     }
 

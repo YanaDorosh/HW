@@ -29,7 +29,7 @@ public class SetCollection {
     public static void  getHashSetMenu() {
         Scanner sc = new Scanner(System.in);
 
-        System.out.println("enter the ship type");
+        System.out.println("enter the type of fishing ship");
         String type = sc.next();
 
         System.out.println("enter size");
@@ -46,12 +46,12 @@ public class SetCollection {
         SetCollection setCollection  = new SetCollection();
         setCollection.setFishingSet(fishing);
 
-        System.out.println("enter 0 to add information; press 1 to display the collection; press 2 to exit the menu");
+        System.out.println("Enter number for choosing ship : military 0; civilian 1; fishing  2; sailing boat 3");
         int menu1 = sc.nextInt();
 
         switch (menu1) {
             case 0:
-                System.out.println("enter the ship type");
+                System.out.println("enter the type of fishing ship");
                 String type1 = sc.next();
 
                 System.out.println("enter size");

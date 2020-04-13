@@ -30,7 +30,7 @@ public class LinkedListCollection {
     public static void getLinkedMenu() {
         Scanner sc = new Scanner(System.in);
 
-        System.out.println("enter the ship type");
+        System.out.println("enter the type of  Civil ship");
         String type = sc.next();
 
         System.out.println("enter size");
@@ -39,7 +39,10 @@ public class LinkedListCollection {
         System.out.println("enter speed");
         int speed = sc.nextInt();
 
-        Civil civil = new Civil(type, size, speed);
+        System.out.println("enter the number of passengers to calculate the range");
+        int passengers = sc.nextInt();
+
+        Civil civil = new Civil(type, size, speed, passengers);
         LinkedListCollection linkedListCollection = new LinkedListCollection();
         linkedListCollection.setCivil(civil);
 
@@ -48,7 +51,7 @@ public class LinkedListCollection {
 
         switch (menu1) {
             case 0:
-                System.out.println("enter the ship type");
+                System.out.println("enter the type of Civil ship");
                 String type1 = sc.next();
 
                 System.out.println("enter size");
@@ -57,7 +60,10 @@ public class LinkedListCollection {
                 System.out.println("enter speed");
                 int speed1 = sc.nextInt();
 
-                Civil civil1 = new Civil(type1, size1, speed1);
+                System.out.println("enter the number of passengers to calculate the range");
+                int passengers1 = sc.nextInt();
+
+                Civil civil1 = new Civil(type1, size1, speed1, passengers1);
 
                 linkedListCollection.setCivil(civil1);
 
@@ -112,7 +118,7 @@ public class LinkedListCollection {
 
     public static void printResults(LinkedListCollection linkedListCollection) {
         for (Civil civil : linkedListCollection.getlinkedListCivils()) {
-            System.out.println(civil.getInfoBoat());
+            System.out.println(civil.getInfoCivil());
         }
     }
 

@@ -12,13 +12,13 @@ public class Military extends Boat implements INaval, IRangeOfBattle {
     private int hulls;
 
 
-    public Military(){
+    public Military() {
 
     }
 
-    public Military(String type, int size, int speed) {
+    public Military(String type, int size, int speed, String armament) {
         super(type, size, speed);
-
+        this.armament = armament;
     }
 
     public void setArmy(int value) {
@@ -40,13 +40,10 @@ public class Military extends Boat implements INaval, IRangeOfBattle {
     }
 
     public String getInfoNavy() {
-        String infoNavy = "    Armament: " + getArmament() + "    Army of soldiers: " + String.valueOf(getArmy());
+        String infoNavy = "    Armament: " + getArmament() ;
         return getInfoBoat() + infoNavy;
     }
 
-    public void setHulls(int value) {
-        this.hulls = value;
-    }
     @Override
     public int hulls() {
         return this.hulls;

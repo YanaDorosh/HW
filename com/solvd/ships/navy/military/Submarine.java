@@ -11,8 +11,7 @@ public final class Submarine extends Military implements INaval, IRangeOfBattle 
     private int hulls ;
 
     public Submarine(String type, int size, int speed, String armament) {
-        super(type, size, speed);
-        this.armament=armament;
+        super(type, size, speed, armament);
     }
 
     public void setEngine(String value) {
@@ -46,19 +45,9 @@ public final class Submarine extends Military implements INaval, IRangeOfBattle 
 
     }
 
-    public void setArmament(String value) {
-        this.armament = value;
-    }
-
-    public String getArmament() {
-        return this.armament;
-
-    }
-
-
     @Override
     public String getInfoNavy() {
-        String infoNavy = "    Armament: " + getArmament() + "    Army of soldiers: " + String.valueOf(army);
+        String infoNavy = "    Army of soldiers: " +army;
         return getInfoBoat() + infoNavy + getEngine();
 
     }

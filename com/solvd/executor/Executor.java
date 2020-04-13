@@ -19,7 +19,7 @@ public class Executor {
     public static void getMenuNumber() {
         Scanner sc = new Scanner(System.in);
 
-        System.out.println("criate ArrayLiast 0; criate LinkedList 1;  criate HashSet 2; criate HashMap 3 ");
+        System.out.println("Enter number for choosing ship : military 0; civilian 1; fishing  2; sailing boat 3.");
         int collection = sc.nextInt();
 
         switch (collection) {
@@ -35,7 +35,9 @@ public class Executor {
             case 3:
                 HashMapCollection.getHashMapMenu();
                 break;
-
+            case 4:
+                sc.close();
+                break;
             default:
                 System.out.println("enter correct number");
                 getMenuNumber();

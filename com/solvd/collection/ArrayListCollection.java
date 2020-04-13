@@ -1,5 +1,6 @@
 package com.solvd.collection;
 
+import com.solvd.executor.Executor;
 import com.solvd.ships.navy.military.Military;
 
 import java.util.ArrayList;
@@ -28,11 +29,14 @@ public class ArrayListCollection {
         return listMilitarys;
     }
 
+    /**
+    *Displays a menu for entering data into an object
+     */
 
     public static void getArrayMenu() {
         Scanner sc = new Scanner(System.in);
 
-        System.out.println("enter the ship type");
+        System.out.println("enter the type of warship");
         String type = sc.next();
 
         System.out.println("enter size");
@@ -41,16 +45,23 @@ public class ArrayListCollection {
         System.out.println("enter speed");
         int speed = sc.nextInt();
 
-        Military military = new Military(type, size, speed);
+        System.out.println("enter armament");
+        String armament = sc.next();
+
+        Military military = new Military(type, size, speed, armament);
         ArrayListCollection arrayListCollection = new ArrayListCollection();
         arrayListCollection.setMilitary(military);
 
         System.out.println("enter 0 to add information; press 1 to display the collection; press 2 to exit the menu");
         int menu1 = sc.nextInt();
 
+        /**
+         *Еhe implementation of adding or removing an object from a collection
+         */
+
         switch (menu1) {
             case 0:
-                System.out.println("enter the ship type");
+                System.out.println("enter the type of warship");
                 String type1 = sc.next();
 
                 System.out.println("enter size");
@@ -59,12 +70,18 @@ public class ArrayListCollection {
                 System.out.println("enter speed");
                 int speed1 = sc.nextInt();
 
-                Military military1 = new Military(type1, size1, speed1);
+                System.out.println("enter armament");
+                String armament1 = sc.next();
 
+                Military military1 = new Military(type1, size1, speed1, armament1);
                 arrayListCollection.setMilitary(military1);
 
                 System.out.println("for deleting press 0; press 1 to display the collection;  press 2 to exit the menu");
                 int menu2 = sc.nextInt();
+
+                /**
+                 *Еhe implementation menu of removing an object from a collection
+                 */
 
                 switch (menu2) {
                     case 0:
@@ -112,9 +129,13 @@ public class ArrayListCollection {
         }
     }
 
+    /**
+     Displays the data contained in the collection
+     */
+
     public static void printResults(ArrayListCollection arrayListCollection) {
         for (Military military : arrayListCollection.getListMilitarys()) {
-            System.out.println(military.getInfoBoat());
+            System.out.println(military.getInfoNavy());
         }
     }
 
