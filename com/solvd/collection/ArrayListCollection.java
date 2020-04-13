@@ -1,3 +1,4 @@
+
 package com.solvd.collection;
 
 import com.solvd.executor.Executor;
@@ -30,7 +31,7 @@ public class ArrayListCollection {
     }
 
     /**
-    *Displays a menu for entering data into an object
+     *Displays a menu for entering data into an object
      */
 
     public static void getArrayMenu() {

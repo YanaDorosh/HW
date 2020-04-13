@@ -1,3 +1,4 @@
+
 package com.solvd.collection;
 
 import com.solvd.ships.civil.Civil;

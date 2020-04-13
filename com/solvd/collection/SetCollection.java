@@ -1,3 +1,4 @@
+
 package com.solvd.collection;
 
 import com.solvd.ships.civil.service.Fishing;
@@ -15,7 +16,7 @@ public class SetCollection {
 
 
     public void setFishingSet(Fishing fishing) {
-       fishingSet.add(fishing);
+        fishingSet.add(fishing);
     }
 
     public Set<Fishing> getFishingSet() {
