@@ -5,8 +5,8 @@ import com.solvd.ships.civil.Service;
 
 public final class Icebreaker extends Service implements INaval {
 
-    private String oil = " Special -50";
-    private int hulss = 3;
+    private String oil;
+    private int hulls;
 
     public Icebreaker() {
 
@@ -17,16 +17,18 @@ public final class Icebreaker extends Service implements INaval {
 
     }
 
-
+    public void setHulls(int value) {
+        this.hulls = value;
+    }
     @Override
     public String getInfoNoval() {
-        String infoNaval = "    Hulls: " + String.valueOf(hulls()) + "   Oil: " + oil;
+        String infoNaval = "    Hulls: " + hulls() + "   Oil: " + oil;
         return getInfoBoat() + infoNaval;
 
     }
 
     @Override
     public int hulls() {
-        return this.hulss;
+        return this.hulls;
     }
 }

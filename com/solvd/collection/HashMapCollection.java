@@ -1,33 +1,38 @@
 package com.solvd.collection;
 
-import com.solvd.ships.civil.Civil;
+import com.solvd.ships.civil.SailingBoat;
 
-import java.util.LinkedList;
-import java.util.List;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Scanner;
 
+public class HashMapCollection {
 
-public class LinkedListCollection {
-    LinkedList<Civil> linkedListCivils;
+    Map<Integer, SailingBoat> sailingBoatMap;
 
-    LinkedListCollection() {
-        linkedListCivils = new LinkedList<Civil>();
+
+    HashMapCollection() {
+        sailingBoatMap = new HashMap<Integer, SailingBoat>();
+
     }
 
-    public void setCivil(Civil civil) {
-        linkedListCivils.add(civil);
-    }
-
-    public void removeCivil(int index) {
-        linkedListCivils.remove(index);
-    }
-
-    public List<Civil> getlinkedListCivils() {
-        return linkedListCivils;
+    public void setSailigBoat(SailingBoat sailingBoat) {
+        int key = 0;
+        key++;
+        sailingBoatMap.put(key, sailingBoat);
     }
 
 
-    public static void getLinkedMenu() {
+    public Map<Integer, SailingBoat> getSailingBoat() {
+        return sailingBoatMap;
+    }
+
+    public void removeSailingBoat(int index) {
+        sailingBoatMap.remove(index);
+    }
+
+
+    public static void getHashMapMenu() {
         Scanner sc = new Scanner(System.in);
 
         System.out.println("enter the ship type");
@@ -39,15 +44,20 @@ public class LinkedListCollection {
         System.out.println("enter speed");
         int speed = sc.nextInt();
 
-        Civil civil = new Civil(type, size, speed);
-        LinkedListCollection linkedListCollection = new LinkedListCollection();
-        linkedListCollection.setCivil(civil);
+        System.out.println("enter number of sails");
+        int sail = sc.nextInt();
+
+
+        SailingBoat sailingBoat = new SailingBoat(type, size, speed, sail);
+        HashMapCollection hashMapCollection = new HashMapCollection();
+        hashMapCollection.setSailigBoat(sailingBoat);
 
         System.out.println("enter 0 to add information; press 1 to display the collection; press 2 to exit the menu");
         int menu1 = sc.nextInt();
 
         switch (menu1) {
             case 0:
+
                 System.out.println("enter the ship type");
                 String type1 = sc.next();
 
@@ -57,9 +67,12 @@ public class LinkedListCollection {
                 System.out.println("enter speed");
                 int speed1 = sc.nextInt();
 
-                Civil civil1 = new Civil(type1, size1, speed1);
+                System.out.println("enter number of sails");
+                int sail1 = sc.nextInt();
 
-                linkedListCollection.setCivil(civil1);
+                SailingBoat sailingBoat1 = new SailingBoat(type1, size1, speed1, sail1);
+
+                hashMapCollection.setSailigBoat(sailingBoat1);
 
                 System.out.println("for deleting press 0; press 1 to display the collection;  press 2 to exit the menu");
                 int menu2 = sc.nextInt();
@@ -70,12 +83,12 @@ public class LinkedListCollection {
                         int delete = sc.nextInt();
                         switch (delete) {
                             case 0:
-                                linkedListCollection.removeCivil(0);
-                                printResults(linkedListCollection);
+                                hashMapCollection.removeSailingBoat(0);
+                                printResults(hashMapCollection);
                                 break;
                             case 1:
-                                linkedListCollection.removeCivil(1);
-                                printResults(linkedListCollection);
+                                hashMapCollection.removeSailingBoat(1);
+                                printResults(hashMapCollection);
                                 break;
 
                             default:
@@ -83,7 +96,7 @@ public class LinkedListCollection {
                         }
                         break;
                     case 1:
-                        printResults(linkedListCollection);
+                        printResults(hashMapCollection);
                         break;
 
                     case 2:
@@ -97,7 +110,7 @@ public class LinkedListCollection {
                 break;
 
             case 1:
-                printResults(linkedListCollection);
+                printResults(hashMapCollection);
                 break;
 
             case 2:
@@ -110,11 +123,10 @@ public class LinkedListCollection {
         }
     }
 
-    public static void printResults(LinkedListCollection linkedListCollection) {
-        for (Civil civil : linkedListCollection.getlinkedListCivils()) {
-            System.out.println(civil.getInfoBoat());
+    public static void printResults(HashMapCollection hashMapCollection) {
+        for (SailingBoat sailingBoat : hashMapCollection.getSailingBoat()) {
+            System.out.println(sailingBoat.getInfoAutomotive());
         }
     }
-
 
 }

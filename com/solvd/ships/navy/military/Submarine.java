@@ -1,19 +1,18 @@
 package com.solvd.ships.navy.military;
 
-import com.solvd.ships.Boat;
 import com.solvd.ships.INaval;
-import com.solvd.ships.Season;
 
 public final class Submarine extends Military implements INaval, IRangeOfBattle {
 
-    private String engine = "atomic";
-    private String armament = "torpedo";
-    private int army = 50;
-    private int range = 2;
-    private int hulls = 3;
+    private String engine;
+    private String armament;
+    private int army;
+    private int range;
+    private int hulls ;
 
-    public Submarine(String type, int size, int speed) {
+    public Submarine(String type, int size, int speed, String armament) {
         super(type, size, speed);
+        this.armament=armament;
     }
 
     public void setEngine(String value) {
@@ -24,6 +23,9 @@ public final class Submarine extends Military implements INaval, IRangeOfBattle 
         return this.engine;
     }
 
+    public void setHulls(int value) {
+        this.hulls = value;
+    }
     @Override
     public int hulls() {
         return this.hulls;

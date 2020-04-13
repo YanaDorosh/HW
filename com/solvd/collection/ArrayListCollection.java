@@ -1,33 +1,35 @@
 package com.solvd.collection;
 
-import com.solvd.ships.civil.Civil;
+import com.solvd.ships.navy.military.Military;
 
-import java.util.LinkedList;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
+public class ArrayListCollection {
 
-public class LinkedListCollection {
-    LinkedList<Civil> linkedListCivils;
+    List<Military> listMilitarys;
 
-    LinkedListCollection() {
-        linkedListCivils = new LinkedList<Civil>();
+
+    public ArrayListCollection() {
+        listMilitarys = new ArrayList<Military>();
+
     }
 
-    public void setCivil(Civil civil) {
-        linkedListCivils.add(civil);
+    public void setMilitary(Military military) {
+        listMilitarys.add(military);
     }
 
-    public void removeCivil(int index) {
-        linkedListCivils.remove(index);
+    public void removeMilitary(int index) {
+        listMilitarys.remove(index);
     }
 
-    public List<Civil> getlinkedListCivils() {
-        return linkedListCivils;
+    public List<Military> getListMilitarys() {
+        return listMilitarys;
     }
 
 
-    public static void getLinkedMenu() {
+    public static void getArrayMenu() {
         Scanner sc = new Scanner(System.in);
 
         System.out.println("enter the ship type");
@@ -39,9 +41,9 @@ public class LinkedListCollection {
         System.out.println("enter speed");
         int speed = sc.nextInt();
 
-        Civil civil = new Civil(type, size, speed);
-        LinkedListCollection linkedListCollection = new LinkedListCollection();
-        linkedListCollection.setCivil(civil);
+        Military military = new Military(type, size, speed);
+        ArrayListCollection arrayListCollection = new ArrayListCollection();
+        arrayListCollection.setMilitary(military);
 
         System.out.println("enter 0 to add information; press 1 to display the collection; press 2 to exit the menu");
         int menu1 = sc.nextInt();
@@ -57,9 +59,9 @@ public class LinkedListCollection {
                 System.out.println("enter speed");
                 int speed1 = sc.nextInt();
 
-                Civil civil1 = new Civil(type1, size1, speed1);
+                Military military1 = new Military(type1, size1, speed1);
 
-                linkedListCollection.setCivil(civil1);
+                arrayListCollection.setMilitary(military1);
 
                 System.out.println("for deleting press 0; press 1 to display the collection;  press 2 to exit the menu");
                 int menu2 = sc.nextInt();
@@ -70,12 +72,12 @@ public class LinkedListCollection {
                         int delete = sc.nextInt();
                         switch (delete) {
                             case 0:
-                                linkedListCollection.removeCivil(0);
-                                printResults(linkedListCollection);
+                                arrayListCollection.removeMilitary(0);
+                                printResults(arrayListCollection);
                                 break;
                             case 1:
-                                linkedListCollection.removeCivil(1);
-                                printResults(linkedListCollection);
+                                arrayListCollection.removeMilitary(1);
+                                printResults(arrayListCollection);
                                 break;
 
                             default:
@@ -83,7 +85,7 @@ public class LinkedListCollection {
                         }
                         break;
                     case 1:
-                        printResults(linkedListCollection);
+                        printResults(arrayListCollection);
                         break;
 
                     case 2:
@@ -97,7 +99,7 @@ public class LinkedListCollection {
                 break;
 
             case 1:
-                printResults(linkedListCollection);
+                printResults(arrayListCollection);
                 break;
 
             case 2:
@@ -110,11 +112,12 @@ public class LinkedListCollection {
         }
     }
 
-    public static void printResults(LinkedListCollection linkedListCollection) {
-        for (Civil civil : linkedListCollection.getlinkedListCivils()) {
-            System.out.println(civil.getInfoBoat());
+    public static void printResults(ArrayListCollection arrayListCollection) {
+        for (Military military : arrayListCollection.getListMilitarys()) {
+            System.out.println(military.getInfoBoat());
         }
     }
 
-
 }
+
+

@@ -9,6 +9,6 @@ public interface IAutomotive {
 
     public void humanPowered();
 
-    public void mtorboat();
+    public void motorboat();
 
 }

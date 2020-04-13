@@ -6,12 +6,13 @@ import com.solvd.ships.INaval;
 
 public class Military extends Boat implements INaval, IRangeOfBattle {
 
-    private String armament = "RIM-162 ESSM launchers";
-    private int army = 300;
-    private int range = 3;
-    private int hulls = 6;
+    private String armament;
+    private int army;
+    private int range;
+    private int hulls;
 
-    public Military() {
+
+    public Military(){
 
     }
 
@@ -43,6 +44,9 @@ public class Military extends Boat implements INaval, IRangeOfBattle {
         return getInfoBoat() + infoNavy;
     }
 
+    public void setHulls(int value) {
+        this.hulls = value;
+    }
     @Override
     public int hulls() {
         return this.hulls;

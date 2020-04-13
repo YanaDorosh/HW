@@ -5,8 +5,8 @@ import com.solvd.ships.INaval;
 
 public class Service extends Boat implements INaval {
 
-    private int power = 300;
-    private int hulls = 4;
+    private int power ;
+    private int hulls ;
 
     public Service() {
 
@@ -25,6 +25,9 @@ public class Service extends Boat implements INaval {
         return this.power;
     }
 
+    public void setHulls(int value) {
+        this.hulls = value;
+    }
 
     @Override
     public int hulls() {

@@ -5,14 +5,15 @@ import com.solvd.ships.civil.IAutomotive;
 
 public class SailingBoat extends Boat implements IAutomotive {
 
-    private int sailings = 11;
+    private int sailings;
 
     public SailingBoat() {
 
     }
 
-    public SailingBoat(String type, int size, int speed) {
+    public SailingBoat(String type, int size, int speed, int sailings ) {
         super(type, size, speed);
+        this.sailings = sailings;
     }
 
     @Override
@@ -22,7 +23,7 @@ public class SailingBoat extends Boat implements IAutomotive {
 
     @Override
     public String getInfoAutomotive() {
-        String infoSailing = "    Sailing's number: " + String.valueOf(sailings())
+        String infoSailing = "    Namber of sails: " + sailings()
                 + "  Automotive's type: " + isType;
         return getInfoBoat() + infoSailing;
     }
@@ -32,7 +33,7 @@ public class SailingBoat extends Boat implements IAutomotive {
     }
 
     @Override
-    public void mtorboat() {
+    public void motorboat() {
     }
 }
 

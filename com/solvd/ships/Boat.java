@@ -5,7 +5,7 @@ public abstract class Boat {
     private String type;
     private int size;
     private int speed;
-    private final int KNOTE = 1852;
+    final int KNOTE = 1852;
 
     public Boat() {
 

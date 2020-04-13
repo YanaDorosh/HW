@@ -5,8 +5,8 @@ import com.solvd.ships.INaval;
 
 public class Transport extends Boat implements INaval {
 
-    private int loading = 1000;
-    private int hulls = 7;
+    private int loading;
+    private int hulls;
 
     public Transport() {
 
@@ -24,6 +24,9 @@ public class Transport extends Boat implements INaval {
         return this.loading;
     }
 
+    public void setHulls(int value) {
+        this.hulls = value;
+    }
     @Override
     public int hulls() {
         return this.hulls;
@@ -31,7 +34,7 @@ public class Transport extends Boat implements INaval {
 
     @Override
     public String getInfoNoval() {
-        String infoNaval = "  Hulls: " + String.valueOf(hulls()) +
+        String infoNaval = "  Hulls: " + hulls()+
                 "  Transport loading tons: " + String.valueOf(loading);
         return getInfoBoat() + infoNaval;
     }

@@ -3,7 +3,7 @@ package com.solvd.ships;
 public enum Season {
     WINTER("winter", 25, -50),
     SPRING("spring", 35, -15),
-    SAMMER("sammer", 55, -3),
+    SUMMER("sammer", 55, -3),
     FALL("fall", 35, -20);
 
 

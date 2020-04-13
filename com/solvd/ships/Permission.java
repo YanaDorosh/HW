@@ -3,6 +3,7 @@ package com.solvd.ships;
 public class Permission {
     public Boat getPermission(Season season) {
         Boat boat = null;
+
         switch (season) {
             case WINTER:
                 System.out.println("Season: " + Season.WINTER.getName());
@@ -25,12 +26,14 @@ public class Permission {
                 System.out.println("================================");
                 break;
 
-            case SAMMER:
-                System.out.println("Season: " + Season.SAMMER.getName());
-                System.out.println("Max Temperature: " + Season.SAMMER.getMaxTemperature());
-                System.out.println("Min Temperature: " + Season.SAMMER.getMinTemperature());
+            case SUMMER:
+                System.out.println("Season: " + Season.SUMMER.getName());
+                System.out.println("Max Temperature: " + Season.SUMMER.getMaxTemperature());
+                System.out.println("Min Temperature: " + Season.SUMMER.getMinTemperature());
                 System.out.println("================================");
                 break;
+            default:
+                System.out.println("enter correct numbe");
         }
         return boat;
     }
