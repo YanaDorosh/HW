@@ -1,13 +1,12 @@
 
 package com.solvd.collection;
 
-import com.solvd.ships.Boat;
+
 import com.solvd.ships.civil.Civil;
 import com.solvd.ships.civil.SailingBoat;
 import com.solvd.ships.civil.service.Fishing;
-import com.solvd.ships.navy.military.IRangeOfBattle;
 import com.solvd.ships.navy.military.Military;
-import com.solvd.ships.navy.military.Submarine;
+
 
 import java.util.*;
 

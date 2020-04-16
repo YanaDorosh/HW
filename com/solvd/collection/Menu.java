@@ -9,10 +9,13 @@ import java.util.Scanner;
 
 public class Menu {
 
+    /**
+     * Common fields that use in all collection on this class
+     */
+
     private static String type;
     private static int size;
     private static int speed;
-    private static String armament;
     static Scanner sc = new Scanner(System.in);
     private static Storage storage = new Storage();
 
@@ -33,6 +36,10 @@ public class Menu {
         executeMapMenu(storage);
     }
 
+    /**
+     * Gets a common of information for all classes
+     */
+
     public static void getInfoMenu(Storage storage) {
         System.out.println("enter the type ");
         type = sc.next();
@@ -43,6 +50,10 @@ public class Menu {
         System.out.println("enter speed");
         speed = sc.nextInt();
     }
+
+    /**
+     *Methods pass objects to collections and re-implement the second menu
+     */
 
     public static void executeArrayMenu(Storage storage) {
         System.out.println("enter number of ships");
@@ -92,6 +103,10 @@ public class Menu {
         executeMenu2(storage);
     }
 
+    /**
+     * A menu for all collections that implements
+     * the functions of adding items, deleting and displaying information
+     */
 
     public static void executeMenu2(Storage storage) {
 
@@ -104,7 +119,10 @@ public class Menu {
                 executeMapMenu(storage);
                 break;
             case 1:
-                deleting(storage);
+                deletingArray(storage);
+                deletingLinked(storage);
+                deletingSet(storage);
+                deletingMap(storage);
                 break;
             case 2:
                 storage.printInfoColection(storage.getMilitaryList());
@@ -118,9 +136,12 @@ public class Menu {
             default:
                 System.out.println("enter correct number");
                 executeMenu2(storage);
-
         }
     }
+
+    /**
+     * Methods create objects for collections
+     */
 
     public static void createObjectArray(Storage storage) {
         System.out.println("enter armament");
@@ -153,13 +174,35 @@ public class Menu {
         storage.setSailigBoat(sailingBoat);
     }
 
-    public static void deleting(Storage storage) {
+    /**
+     * Methods implement deleting items from collections
+     */
+
+    public static void deletingArray(Storage storage) {
         System.out.println("for deleting enter number of element");
         int delete = sc.nextInt();
         storage.removeMilitary(delete - 1);
         storage.printInfoColection(storage.getMilitaryList());
+    }
+
+    public static void deletingLinked(Storage storage) {
+        System.out.println("for deleting enter number of element");
+        int delete = sc.nextInt();
+        storage.removeCivil(delete - 1);
         storage.printInfoColection(storage.getlinkedListCivils());
+    }
+
+    public static void deletingSet(Storage storage) {
+        System.out.println("for deleting enter number of element");
+        int delete = sc.nextInt();
+        storage.removeFishing(delete - 1);
         storage.printInfoColection(storage.getFishingSet());
+    }
+
+    public static void deletingMap(Storage storage) {
+        System.out.println("for deleting enter number of element");
+        int delete = sc.nextInt();
+        storage.removeSailingBoat(delete - 1);
         storage.printInfoColection(storage.getSailingBoatMap().values());
     }
 
