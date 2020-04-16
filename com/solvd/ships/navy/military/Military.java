@@ -41,7 +41,7 @@ public class Military extends Boat implements INaval, IRangeOfBattle {
 
     public String getInfoNavy() {
         String infoNavy = "    Armament: " + getArmament() ;
-        return getInfoBoat() + infoNavy;
+        return "Warship's" + getInfoBoat() + infoNavy;
     }
 
     @Override
@@ -59,6 +59,11 @@ public class Military extends Boat implements INaval, IRangeOfBattle {
     public int BattlesRenge() {
         this.range *= isMiters;
         return range;
+    }
+
+    @Override
+    public String toString() {
+        return getInfoNavy();
     }
 
 

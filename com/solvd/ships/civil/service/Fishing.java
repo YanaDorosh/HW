@@ -33,9 +33,12 @@ public final class Fishing extends Service implements IRiver {
     @Override
     public String getInfoCivil() {
         String infoRiver = "    Kilomiters:  " + String.valueOf(distance()) + "   Used like: " + isRiver;
-        return getInfoBoat() + infoRiver;
+        return "Fishing " + getInfoBoat() + infoRiver;
     }
 
-
+    @Override
+    public String toString() {
+        return getInfoCivil();
+    }
 }
 

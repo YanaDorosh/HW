@@ -4,9 +4,9 @@ import com.solvd.ships.Boat;
 
 public class Civil extends Boat implements IRiver {
 
-    private int passengers = 3000;
-    private double kilomitr = 200.0;
-    private int range = 6;
+    private int passengers;
+    private double kilomitr;
+    private int range;
 
     public Civil() {
 
@@ -17,17 +17,16 @@ public class Civil extends Boat implements IRiver {
         this.passengers = passengers;
     }
 
-
-    public double distance() {
-        double kilomitr = (this.passengers / range) * 100;
-        return kilomitr;
-    }
-
     @Override
     public String getInfoCivil() {
-        String infoRiver = "    Kilomiters:  " + String.valueOf(distance()) + "   Used like: " + isRiver;
-        return getInfoBoat() + infoRiver;
+        String infoRiver = "     Passengers  " + String.valueOf(passengers) + "   Used like: " + isRiver;
+        return "Civil's " + getInfoBoat() + infoRiver;
     }
+    @Override
+    public String toString() {
+        return getInfoCivil();
+    }
+
 
 
 }

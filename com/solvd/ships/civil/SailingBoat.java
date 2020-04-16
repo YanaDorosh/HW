@@ -1,7 +1,6 @@
 package com.solvd.ships.civil;
 
 import com.solvd.ships.Boat;
-import com.solvd.ships.civil.IAutomotive;
 
 public class SailingBoat extends Boat implements IAutomotive {
 
@@ -23,18 +22,19 @@ public class SailingBoat extends Boat implements IAutomotive {
 
     @Override
     public String getInfoAutomotive() {
-        String infoSailing = "    Namber of sails: " + sailings()
-                + "  Automotive's type: " + isType;
-        return getInfoBoat() + infoSailing;
+        String infoSailing = "    Namber of sails: " + sailings();
+        return "Sailboat " + getInfoBoat() + infoSailing + combinePower() ;
     }
 
     @Override
-    public void humanPowered() {
+    public void humanPowered(String isType) {
     }
 
     @Override
-    public void motorboat() {
+    public String toString() {
+        return getInfoAutomotive();
     }
+
 }
 
 

@@ -1,10 +1,7 @@
 package com.solvd.executor;
 
 
-import com.solvd.collection.ArrayListCollection;
-import com.solvd.collection.HashMapCollection;
-import com.solvd.collection.LinkedListCollection;
-import com.solvd.collection.SetCollection;
+import com.solvd.collection.*;
 
 import java.util.Scanner;
 
@@ -24,16 +21,16 @@ public class Executor {
 
         switch (collection) {
             case 0:
-                ArrayListCollection.getArrayMenu();
+                Menu.getArrayMenu();
                 break;
             case 1:
-                LinkedListCollection.getLinkedMenu();
+                Menu.getLinkedMenu();
                 break;
             case 2:
-                SetCollection.getHashSetMenu();
+                Menu.getHashSetMenu();
                 break;
             case 3:
-                HashMapCollection.getHashMapMenu();
+                Menu.getHashMapMenu();
                 break;
             case 4:
                 sc.close();

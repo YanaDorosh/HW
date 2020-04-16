@@ -32,7 +32,7 @@ public abstract class Boat {
     public final String getInfoBoat() {
         String sizeStr = String.valueOf(getSize());
         String speedStr = String.valueOf(getSpeed());
-        String infoBoat = "Type of ship:  " + getType() + "   " + "Size: " + sizeStr + "  Speed: " + speedStr;
+        String infoBoat = " type:  " + getType() + "   " + "Size: " + sizeStr + "  Speed: " + speedStr;
         return infoBoat;
     }
 
