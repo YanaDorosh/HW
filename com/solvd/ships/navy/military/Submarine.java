@@ -1,39 +1,19 @@
 package com.solvd.ships.navy.military;
 
-import com.solvd.ships.INaval;
+import com.solvd.typeOfMovement.Engines.INuclear;
 
-public final class Submarine extends Military implements INaval, IRangeOfBattle {
+public class Submarine extends Military implements INuclear  {
 
-    private String engine;
     private String armament;
-    private int army;
-    private int range;
-    private int hulls ;
+    private int army = 250;
+    private int range = 5;
+    private int hulls = 2;
 
-    public Submarine(String type, int size, int speed, String armament) {
-        super(type, size, speed, armament);
+    public Submarine() {
     }
 
-    public void setEngine(String value) {
-        this.engine = value;
-    }
-
-    public String getEngine() {
-        return this.engine;
-    }
-
-    public void setHulls(int value) {
-        this.hulls = value;
-    }
-    @Override
-    public int hulls() {
-        return this.hulls;
-    }
-
-    @Override
-    public int BattlesRenge() {
-        this.range *= isMiters;
-        return range;
+    public Submarine(int buoyancy, int size, int speed, String armament) {
+        super(buoyancy, size, speed, armament);
     }
 
     public void setArmy(int value) {
@@ -44,13 +24,25 @@ public final class Submarine extends Military implements INaval, IRangeOfBattle 
         return this.army;
 
     }
-
     @Override
-    public String getInfoNavy() {
-        String infoNavy = "    Army of soldiers: " +army;
-        return getInfoBoat() + infoNavy + getEngine();
-
+    public int hulls() {
+        return this.hulls;
     }
 
+    @Override
+    public double BattlesRange() {
+        this.range *= isMiters*getSize();
+        return range;
+    }
 
+    public String getInfoSubmarine() {
+
+        return getInfoMilitary() + getInfoNuclearEngine();
+    }
+
+    @Override
+    public String getInfoEngine() {
+        return getInfoNuclearEngine();
+    }
 }
+

@@ -1,21 +1,22 @@
 
-package com.solvd.collection;
+package com.solvd.placeCollections;
 
 
+import com.solvd.ships.Boat;
 import com.solvd.ships.civil.Civil;
 import com.solvd.ships.civil.SailingBoat;
-import com.solvd.ships.civil.service.Fishing;
+import com.solvd.ships.civil.service.servicetype.Fishing;
 import com.solvd.ships.navy.military.Military;
-
 
 import java.util.*;
 
 public class Storage {
 
-    List<Military> militaryList;
-    LinkedList<Civil> linkedListCivils;
-    Set<Fishing> fishingSet;
-    Map<Integer, SailingBoat> sailingBoatMap;
+    private List<Military> militaryList = new ArrayList<>();
+    private LinkedList<Civil> linkedListCivils = new LinkedList<>();
+    private Set<Fishing> fishingSet = new HashSet<>();
+    private Map<Integer, SailingBoat> sailingBoatMap = new HashMap<>();
+    List<? extends Boat> listOfBoat;
 
     /**
      * Member of the class for HashMap key
@@ -24,10 +25,7 @@ public class Storage {
     private int key = 0;
 
     public Storage() {
-        militaryList = new ArrayList<>();
-        linkedListCivils = new LinkedList<>();
-        fishingSet = new HashSet<>();
-        sailingBoatMap = new HashMap<Integer, SailingBoat>();
+        listOfBoat = new ArrayList<>();
 
     }
 
@@ -36,6 +34,7 @@ public class Storage {
             System.out.println(ls.toString());
         }
     }
+
 
     public void setMilitary(Military military) {
         militaryList.add(military);

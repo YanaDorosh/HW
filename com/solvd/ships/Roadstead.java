@@ -1,13 +1,16 @@
 package com.solvd.ships;
 
-import com.solvd.ships.civil.IAutomotive;
-import com.solvd.ships.civil.IRiver;
+import com.solvd.sіwimmingPlace.INaval;
+import com.solvd.sіwimmingPlace.IRiver;
+import com.solvd.typeOfMovement.IAutomotive;
+import com.solvd.typeOfMovement.IEngines;
 
 public class Roadstead {
 
     private INaval naval;
     private IAutomotive automotive;
     private IRiver river;
+    private IEngines engines;
 
 
     public void setNaval(INaval naval) {
@@ -33,4 +36,6 @@ public class Roadstead {
     public IRiver getRiver() {
         return river;
     }
+
+
 }

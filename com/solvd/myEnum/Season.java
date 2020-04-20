@@ -1,4 +1,4 @@
-package com.solvd.ships;
+package com.solvd.myEnum;
 
 public enum Season {
     WINTER("winter", 25, -50),

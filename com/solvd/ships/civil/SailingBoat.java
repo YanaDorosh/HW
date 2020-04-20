@@ -1,17 +1,20 @@
 package com.solvd.ships.civil;
 
 import com.solvd.ships.Boat;
+import com.solvd.typeOfMovement.IAutomotive;
+import com.solvd.sіwimmingPlace.INaval;
 
-public class SailingBoat extends Boat implements IAutomotive {
+public class SailingBoat extends Boat implements INaval, IAutomotive {
 
     private int sailings;
+    private int hulls = 1;
 
     public SailingBoat() {
 
     }
 
-    public SailingBoat(String type, int size, int speed, int sailings ) {
-        super(type, size, speed);
+    public SailingBoat(int buoyancy, int size, int speed, int sailings) {
+        super(buoyancy, size, speed);
         this.sailings = sailings;
     }
 
@@ -23,11 +26,22 @@ public class SailingBoat extends Boat implements IAutomotive {
     @Override
     public String getInfoAutomotive() {
         String infoSailing = "    Namber of sails: " + sailings();
-        return "Sailboat " + getInfoBoat() + infoSailing + combinePower() ;
+        return "Type Sail boat. " + getInfoBoat() + infoSailing + combinePower()
+                + String.valueOf(hulls()) + getInfoNaval();
     }
 
     @Override
     public void humanPowered(String isType) {
+    }
+
+    @Override
+    public int hulls() {
+        return this.hulls;
+    }
+
+    @Override
+    public String getInfoNaval() {
+        return " Swimming place: sea. ";
     }
 
     @Override

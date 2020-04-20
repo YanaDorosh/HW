@@ -1,4 +1,6 @@
-package com.solvd.ships;
+package com.solvd.myEnum;
+
+import com.solvd.ships.Boat;
 
 public class Permission {
     public Boat getPermission(Season season) {

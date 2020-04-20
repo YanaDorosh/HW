@@ -1,23 +1,25 @@
 package com.solvd.ships.navy.military;
 
 import com.solvd.ships.Boat;
-import com.solvd.ships.INaval;
+import com.solvd.sіwimmingPlace.INaval;
+import com.solvd.typeOfMovement.IEngines;
 
 
-public class Military extends Boat implements INaval, IRangeOfBattle {
+public class Military extends Boat implements INaval, IEngines, IRangeOfBattle {
 
     private String armament;
-    private int army;
-    private int range;
-    private int hulls;
+    private int army = 1000;
+    private double range = 23.6;
+    private int hulls = 7;
+    private String engine = " is used nuclear or motor ";
 
 
     public Military() {
 
     }
 
-    public Military(String type, int size, int speed, String armament) {
-        super(type, size, speed);
+    public Military(int buoyancy, int size, int speed, String armament) {
+        super(buoyancy, size, speed);
         this.armament = armament;
     }
 
@@ -39,10 +41,6 @@ public class Military extends Boat implements INaval, IRangeOfBattle {
 
     }
 
-    public String getInfoNavy() {
-        String infoNavy = "    Armament: " + getArmament() ;
-        return "Warship's" + getInfoBoat() + infoNavy;
-    }
 
     @Override
     public int hulls() {
@@ -51,21 +49,30 @@ public class Military extends Boat implements INaval, IRangeOfBattle {
     }
 
     @Override
-    public String getInfoNoval() {
-        return null;
+    public String getInfoNaval() {
+        return isNaval;
     }
 
     @Override
-    public int BattlesRenge() {
-        this.range *= isMiters;
+    public double BattlesRange() {
+        this.range *= isMiters*getSize();
         return range;
+    }
+
+    public String getInfoMilitary() {
+        String armament= "    Armament: " + getArmament();
+        return "Type Warship." + getInfoBoat()  + armament + "   Range of Battle  " + BattlesRange()
+                + getInfoNaval() + "   Hulls  " + hulls() + "   Army " + getArmy();
     }
 
     @Override
     public String toString() {
-        return getInfoNavy();
+        return getInfoMilitary();
     }
 
-
+    @Override
+    public String getInfoEngine() {
+        return engine;
+    }
 }
 

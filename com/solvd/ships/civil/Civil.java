@@ -2,31 +2,17 @@ package com.solvd.ships.civil;
 
 import com.solvd.ships.Boat;
 
-public class Civil extends Boat implements IRiver {
+public class Civil extends Boat  {
 
-    private int passengers;
-    private double kilomitr;
-    private int range;
+    private String classification;
 
-    public Civil() {
+    public Civil(){
 
     }
-
-    public Civil(String type, int size, int speed, int passengers) {
-        super(type, size, speed);
-        this.passengers = passengers;
+    public Civil(int buoyancy, int size, int speed, String classification){
+        super(buoyancy, size, speed);
+        this.classification = classification;
     }
-
-    @Override
-    public String getInfoCivil() {
-        String infoRiver = "     Passengers  " + String.valueOf(passengers) + "   Used like: " + isRiver;
-        return "Civil's " + getInfoBoat() + infoRiver;
-    }
-    @Override
-    public String toString() {
-        return getInfoCivil();
-    }
-
 
 
 }

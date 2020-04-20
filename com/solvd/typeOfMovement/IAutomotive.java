@@ -1,4 +1,4 @@
-package com.solvd.ships.civil;
+package com.solvd.typeOfMovement;
 
 public interface IAutomotive {
     public String isType = "Unpowered";
