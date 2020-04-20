@@ -35,7 +35,6 @@ public class Storage {
         }
     }
 
-
     public void setMilitary(Military military) {
         militaryList.add(military);
     }

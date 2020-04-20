@@ -10,12 +10,12 @@ public interface IAutomotive {
 
     public void humanPowered(String isType);
 
-    public default  String motorboat(){
+    public default String motorboat() {
         return String.valueOf("  engine ");
     }
 
-    public default String combinePower(){
-        return "   Used two types of power:" + motorboat() +  " and " +  isPower;
+    public default String combinePower() {
+        return "   Used two types of power:" + motorboat() + " and " + isPower;
     }
 
 }

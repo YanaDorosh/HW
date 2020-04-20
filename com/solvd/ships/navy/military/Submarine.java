@@ -1,8 +1,10 @@
 package com.solvd.ships.navy.military;
 
+import com.solvd.myException.SizeException;
+import com.solvd.myException.SpeedException;
 import com.solvd.typeOfMovement.Engines.INuclear;
 
-public class Submarine extends Military implements INuclear  {
+public class Submarine extends Military implements INuclear {
 
     private String armament;
     private int army = 250;
@@ -12,8 +14,9 @@ public class Submarine extends Military implements INuclear  {
     public Submarine() {
     }
 
-    public Submarine(int buoyancy, int size, int speed, String armament) {
+    public Submarine(double buoyancy, int size, int speed, String armament) throws SizeException, SpeedException {
         super(buoyancy, size, speed, armament);
+
     }
 
     public void setArmy(int value) {
@@ -24,6 +27,7 @@ public class Submarine extends Military implements INuclear  {
         return this.army;
 
     }
+
     @Override
     public int hulls() {
         return this.hulls;
@@ -31,13 +35,14 @@ public class Submarine extends Military implements INuclear  {
 
     @Override
     public double BattlesRange() {
-        this.range *= isMiters*getSize();
+        this.range *= isMiters * getSize();
         return range;
+
     }
 
     public String getInfoSubmarine() {
-
         return getInfoMilitary() + getInfoNuclearEngine();
+
     }
 
     @Override

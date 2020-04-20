@@ -1,42 +1,47 @@
 package com.solvd.ships;
 
-import com.solvd.speedException.SpeedException;
+import com.solvd.myException.SizeException;
+import com.solvd.myException.SpeedException;
 
-import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public abstract class Boat {
 
-    private int buoyancy;
+    private double buoyancy;
     private int size;
     private int speed;
     private final int KNOTE = 1852;
     private Scanner sc = new Scanner(System.in);
+    private int minSize = 3;
 
     public Boat() {
 
     }
 
-    public Boat(int buoyancy, int size, int speed) {
+    public Boat(double buoyancy, int size, int speed) throws SpeedException, SizeException {
 
         try {
-            if (speed >= 300 | speed <= 30)
+            if (size <= minSize) {
+                throw new SizeException();
+            }
+        } catch (SizeException e) {
+            System.out.println(e.getMessage());
+        }
+        try {
+            if (speed >= 300 | speed <= 30) {
                 throw new SpeedException();
+            }
         } catch (SpeedException e) {
             System.out.println(e.getMessage());
-            loopSpeed();
-        }
-        catch (InputMismatchException e){
-            System.out.println(" Enter correct information");
         }
 
         this.buoyancy = buoyancy;
-        this.size = size;
         this.speed = speed;
+        this.size = size;
     }
 
 
-    public int getBuoyancy() {
+    public double getBuoyancy() {
         return buoyancy;
     }
 
@@ -44,11 +49,9 @@ public abstract class Boat {
         return size;
     }
 
-
     public int convertSpeed() {
         return speed * KNOTE;
     }
-
 
     public final String getInfoBoat() {
 
@@ -57,15 +60,6 @@ public abstract class Boat {
         String speedStr = String.valueOf(convertSpeed());
         String infoBoat = " Buoyancy: " + getBuoyancy() + "   " + "Size: " + sizeStr + "  Speed: " + speedStr;
         return infoBoat;
-    }
-
-    public void loopSpeed(){
-        if (speed >= 300 | speed <= 30)
-            do {
-                System.out.println("enter speed");
-                speed = sc.nextInt();
-            }
-            while (speed >= 300 | speed <= 30);
     }
 
 

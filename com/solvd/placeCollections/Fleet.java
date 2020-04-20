@@ -1,5 +1,7 @@
 package com.solvd.placeCollections;
 
+import com.solvd.myException.SizeException;
+import com.solvd.myException.SpeedException;
 import com.solvd.ships.navy.military.Military;
 import com.solvd.ships.navy.military.Submarine;
 
@@ -53,7 +55,7 @@ public class Fleet{
     private int speed;
     private Scanner sc = new Scanner(System.in);
 
-    public void mm() {
+    public void mm() throws SizeException, SpeedException {
         Fleet fleet = new Fleet();
         System.out.println("enter buoyancy of the vessel");
         buoyancy = sc.nextInt();

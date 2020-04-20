@@ -1,5 +1,7 @@
 package com.solvd.ships.civil;
 
+import com.solvd.myException.SizeException;
+import com.solvd.myException.SpeedException;
 import com.solvd.ships.Boat;
 import com.solvd.typeOfMovement.IAutomotive;
 import com.solvd.sіwimmingPlace.INaval;
@@ -13,7 +15,7 @@ public class SailingBoat extends Boat implements INaval, IAutomotive {
 
     }
 
-    public SailingBoat(int buoyancy, int size, int speed, int sailings) {
+    public SailingBoat(double buoyancy, int size, int speed, int sailings) throws SizeException, SpeedException {
         super(buoyancy, size, speed);
         this.sailings = sailings;
     }

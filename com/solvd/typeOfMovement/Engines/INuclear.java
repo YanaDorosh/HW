@@ -4,9 +4,9 @@ import com.solvd.typeOfMovement.IEngines;
 
 public interface INuclear extends IEngines {
 
-    public default String getInfoNuclearEngine(){
-       return " is driven by atomic energy. ";
+    public default String getInfoNuclearEngine() {
+        return " is driven by atomic energy. ";
 
-        }
+    }
 
 }

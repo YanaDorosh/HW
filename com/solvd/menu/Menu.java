@@ -1,5 +1,7 @@
 package com.solvd.menu;
 
+import com.solvd.myException.SizeException;
+import com.solvd.myException.SpeedException;
 import com.solvd.placeCollections.Storage;
 import com.solvd.ships.civil.Civil;
 import com.solvd.ships.civil.SailingBoat;
@@ -14,13 +16,22 @@ public class Menu {
     /**
      * Common fields that use in all collection on this class
      */
-// ??????? як отримати ці ж поля із боут//////////////////////////////////////////////////////////////
+
     private int buoyancy;
     private int size;
     private int speed;
+    private int ships;
+    private int ton;
+    private int sail;
+    private String armament;
+    private String classification;
     private Scanner sc = new Scanner(System.in);
     private Storage storage = new Storage();
-    private int ships;
+    private Military military;
+    private Fishing fishing;
+    private SailingBoat sailingBoat;
+    private Civil civil;
+    private int delete;
 
 
     public void getArrayMenu() {
@@ -53,13 +64,18 @@ public class Menu {
 
             System.out.println("enter speed");
             speed = sc.nextInt();
+
         } catch (InputMismatchException e) {
             System.out.println("Enter correct information");
-            //getInfoMenu(storage);             теж закиклити поки не буте числове
-
+            buoyancy = 0;
+            System.out.println("Buoyancy: " + buoyancy);
+            size = 0;
+            System.out.println("Size:     " + size);
+            speed = 35;
+            System.out.println("Speed:   " + speed);
         }
-    }
 
+    }
 
     /**
      * Methods pass objects to collections and re-implement the second menu
@@ -67,72 +83,78 @@ public class Menu {
 
     public void executeArrayMenu(Storage storage) {
         try {
-
-            System.out.println("enter number of ships");
-            ships = sc.nextInt();
-
-        } catch (InputMismatchException e) {
+            loopNumberOfShips();
+            for (int i = 1; i <= ships; i++) {
+                getInfoMenu(storage);
+                createObjectArray(storage);
+            }
+        } catch (InputMismatchException | SizeException | SpeedException e) {
             System.out.println("Enter correct information");
-            ////////////////////////////////////////////// тут хочу зациклити поки не стане вірним числовим
-                System.out.println("enter number of ships");
-                ships = sc.nextInt();
         }
-        for (int i = 1; i <= ships; i++) {
-            getInfoMenu(storage);
-            createObjectArray(storage);
+        if (buoyancy == 0 | size == 0)
+            executeArrayMenu(storage);
+        else {
+            System.out.println("enter 0 to add information;  press 1 to delete element;" +
+                    " press 2 to display the collection; press 3 to exit the menu");
+            executeMenu2(storage);
         }
-        System.out.println("enter 0 to add information;  press 1 to delete element;" +
-                " press 2 to display the collection; press 3 to exit the menu");
-        executeMenu2(storage);
-
     }
-
 
     public void executeLinkedMenu(Storage storage) {
         try {
-            System.out.println("enter number of ships");
-            ships = sc.nextInt();
+            loopNumberOfShips();
             for (int i = 1; i <= ships; i++) {
                 getInfoMenu(storage);
                 createObjectLinked(storage);
             }
-        } catch (InputMismatchException e) {
+        } catch (InputMismatchException | SizeException | SpeedException e) {
             System.out.println("Enter correct information");
-
         }
-        System.out.println("enter 0 to add information;  press 1 to delete element;" +
-                " press 2 to display the collection; press 3 to exit the menu");
-        executeMenu2(storage);
+        if (buoyancy == 0 | size == 0)
+            executeLinkedMenu(storage);
+        else {
+            System.out.println("enter 0 to add information;  press 1 to delete element;" +
+                    " press 2 to display the collection; press 3 to exit the menu");
+            executeMenu2(storage);
+        }
     }
 
     public void executeSetMenu(Storage storage) {
         try {
-            System.out.println("enter number of ships");
-            ships = sc.nextInt();
+            loopNumberOfShips();
             for (int i = 1; i <= ships; i++) {
                 getInfoMenu(storage);
                 createObjectSet(storage);
             }
-
-        } catch (InputMismatchException e) {
+        } catch (InputMismatchException | SizeException | SpeedException e) {
             System.out.println("Enter correct information");
-
         }
-        System.out.println("enter 0 to add information;  press 1 to delete element;" +
-                " press 2 to display the collection; press 3 to exit the menu");
-        executeMenu2(storage);
+        if (buoyancy == 0 | size == 0)
+            executeSetMenu(storage);
+        else {
+            System.out.println("enter 0 to add information;  press 1 to delete element;" +
+                    " press 2 to display the collection; press 3 to exit the menu");
+            executeMenu2(storage);
+        }
     }
 
     public void executeMapMenu(Storage storage) {
-        System.out.println("enter number of ships");
-        ships = sc.nextInt();
-        for (int i = 1; i <= ships; i++) {
-            getInfoMenu(storage);
-            createObjectMap(storage);
+        try {
+            loopNumberOfShips();
+            for (int i = 1; i <= ships; i++) {
+                getInfoMenu(storage);
+                createObjectMap(storage);
+            }
+        } catch (InputMismatchException | SizeException | SpeedException e) {
+            System.out.println("Enter correct information");
         }
-        System.out.println("enter 0 to add information;  press 1 to delete element;" +
-                " press 2 to display the collection; press 3 to exit the menu");
-        executeMenu2(storage);
+        if (buoyancy == 0 | size == 0)
+            executeMapMenu(storage);
+        else {
+            System.out.println("enter 0 to add information;  press 1 to delete element;" +
+                    " press 2 to display the collection; press 3 to exit the menu");
+            executeMenu2(storage);
+        }
     }
 
     /**
@@ -173,49 +195,67 @@ public class Menu {
                     sc.close();
             }
 
-        } catch (InputMismatchException e) {
+        } catch (InputMismatchException | NullPointerException e) {
             System.out.println("enter correct number");
-            executeMenu2(storage);
         }
+
     }
 
     /**
      * Methods create objects for collections
      */
 
-    public void createObjectArray(Storage storage) {
-        System.out.println("enter armament");
-        String armament = sc.next();
-
-        Military military = new Military(buoyancy, size, speed, armament);
-        storage.setMilitary(military);
+    public void createObjectArray(Storage storage) throws SizeException, SpeedException {
+        try {
+            System.out.println("enter armament");
+            armament = sc.next();
+        } finally {
+            military = new Military(buoyancy, size, speed, armament);
+            storage.setMilitary(military);
+        }
     }
 
-    public void createObjectLinked(Storage storage) {
-        System.out.println("enter the  classification");
-        String classification = sc.next();
-
-        Civil civil = new Civil(buoyancy, size, speed, classification);
-        storage.setCivil(civil);
+    public void createObjectLinked(Storage storage) throws SizeException, SpeedException {
+        try {
+            System.out.println("enter the  classification");
+            classification = sc.next();
+        } finally {
+            civil = new Civil(buoyancy, size, speed, classification);
+            storage.setCivil(civil);
+        }
     }
 
-    public void createObjectSet(Storage storage) {
+    public void createObjectSet(Storage storage) throws SizeException, SpeedException {
         System.out.println("enter the classification");
-        String classification = sc.next();
+        classification = sc.next();
 
-        System.out.println("enter ton");
-        int ton = sc.nextInt();
+        try {
+            System.out.println("enter ton");
+            ton = sc.nextInt();
 
-        Fishing fishing = new Fishing(buoyancy, size, speed, classification, ton);
-        storage.setFishingSet(fishing);
+        } catch (NumberFormatException e) {
+            System.out.println("number is incorrect");
+            ton = 0;
+            System.out.println("Ton:" + ton);
+        } finally {
+            fishing = new Fishing(buoyancy, size, speed, classification, ton);
+            storage.setFishingSet(fishing);
+        }
     }
 
-    public void createObjectMap(Storage storage) {
-        System.out.println("enter number of sails");
-        int sail = sc.nextInt();
+    public void createObjectMap(Storage storage) throws SizeException, SpeedException {
+        try {
+            System.out.println("enter number of sails");
+            sail = sc.nextInt();
+        } catch (NumberFormatException e) {
+            System.out.println("number is incorrect");
+            sail = 0;
+            System.out.println("Ton:" + ton);
+        } finally {
+            sailingBoat = new SailingBoat(buoyancy, size, speed, sail);
+            storage.setSailigBoat(sailingBoat);
+        }
 
-        SailingBoat sailingBoat = new SailingBoat(buoyancy, size, speed, sail);
-        storage.setSailigBoat(sailingBoat);
     }
 
     /**
@@ -223,31 +263,45 @@ public class Menu {
      */
 
     public void deletingArray(Storage storage) {
-        System.out.println("for deleting enter number of element");
-        int delete = sc.nextInt();
+        deleteAndCach();
         storage.removeMilitary(delete - 1);
         storage.printInfoColection(storage.getMilitaryList());
     }
 
     public void deletingLinked(Storage storage) {
-        System.out.println("for deleting enter number of element");
-        int delete = sc.nextInt();
+        deleteAndCach();
         storage.removeCivil(delete - 1);
         storage.printInfoColection(storage.getlinkedListCivils());
     }
 
     public void deletingSet(Storage storage) {
-        System.out.println("for deleting enter number of element");
-        int delete = sc.nextInt();
+        deleteAndCach();
         storage.removeFishing(delete - 1);
         storage.printInfoColection(storage.getFishingSet());
     }
 
     public void deletingMap(Storage storage) {
-        System.out.println("for deleting enter number of element");
-        int delete = sc.nextInt();
+        deleteAndCach();
         storage.removeSailingBoat(delete - 1);
         storage.printInfoColection(storage.getSailingBoatMap().values());
+    }
+
+    public void loopNumberOfShips() {
+        do {
+            System.out.println("enter number of ships");
+            ships = sc.nextInt();
+        }
+        while (ships <= 0);
+    }
+
+    public void deleteAndCach() {
+        try {
+            System.out.println("for deleting enter number of element");
+            delete = sc.nextInt();
+        } catch (InputMismatchException e) {
+            e.getMessage();
+        }
+
     }
 
 }

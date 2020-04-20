@@ -3,28 +3,22 @@ package com.solvd.executor;
 
 import com.solvd.menu.Menu;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Executor {
 
     public static void main(String[] args) {
 
-
         getMenuNumber();
     }
 
     public static void getMenuNumber() {
 
-//        try {
+        try {
 
             Scanner sc = new Scanner(System.in);
             Menu menu = new Menu();
-
-///////////////////////////////////////////////////////////////////////////
-//        Fleet fleet = new Fleet();
-//
-//        fleet.mm();
-            ///////////////////////////////////////////////////////////////////////////////
 
             System.out.println("Enter number for choosing ship:");
             System.out.println("0:        military");
@@ -52,10 +46,11 @@ public class Executor {
                     getMenuNumber();
                     break;
             }
-//        } catch (InputMismatchException e) {
-//            System.out.println("enter correct number");
-//            getMenuNumber();
-//        }
+        } catch (InputMismatchException e) {
+            e.getMessage();
+        } finally {
+            System.out.println("Work completed!!!");
+        }
 
     }
 }
