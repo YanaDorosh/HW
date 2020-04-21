@@ -73,6 +73,7 @@ public class Menu {
             System.out.println("Size:     " + size);
             speed = 35;
             System.out.println("Speed:   " + speed);
+
         }
 
     }

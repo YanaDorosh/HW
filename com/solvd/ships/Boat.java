@@ -18,7 +18,7 @@ public abstract class Boat {
 
     }
 
-    public Boat(double buoyancy, int size, int speed) throws SpeedException, SizeException {
+    public Boat(double buoyancy, int size, int speed)  {
 
         try {
             if (size <= minSize) {
