@@ -1,42 +1,33 @@
 package com.solvd.placeCollections;
 
-import com.solvd.myException.SizeException;
-import com.solvd.myException.SpeedException;
 import com.solvd.ships.navy.military.Military;
-import com.solvd.ships.navy.military.Submarine;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 import java.util.Scanner;
 
-public class Fleet{
+public class Fleet  {
 
-    List<Military> militaries = new ArrayList<>();
-    List<Submarine> submarines = new ArrayList<>();
-    List<? extends Military> listOfMilitary;
+//    private List<?> fleetShips;
+Storage storage = new Storage();
+//    private List<Military> militarise = new ArrayList<>();
+//    private List<Submarine> submarines = new ArrayList<>();
+    private List<? extends Military> listOfMilitary;
 
     public Fleet() {
-        listOfMilitary = new ArrayList<>();
+       listOfMilitary = new ArrayList<>();
+//        fleetShips = new ArrayList<>();
     }
 
-
-   //////////////////
-    public void printInfoColection(List<?> list) {
-        for (Object ls : list) {
-            System.out.println(ls.toString());
-        }
-    }
-////////////////////////////
-
-
-    public void setShipOfFleet(Military military) {
-       this.militaries = militaries;
-       this.submarines =submarines;
+  public void setShipOfFleet(List <?> listOfMilitary) {
+       this.listOfMilitary= storage.militaryList;
+      // this.submarines =submarines;
 
     }
-    public void addShipOfFleet(Military military) {
-        militaries.add(new Military());
-        submarines.add(new Submarine());
+    public void addShipOfFleet(List <?> listOfMilitary) {
+        storage.militaryList.add(new Military(buoyancy, size, speed, army, armament));
+       // submarines.add(new Submarine());
 
     }
 
@@ -53,9 +44,11 @@ public class Fleet{
     private int buoyancy;
     private int size;
     private int speed;
+    int army;
     private Scanner sc = new Scanner(System.in);
+    String armament;
 
-    public void mm() throws SizeException, SpeedException {
+    public void mm() {
         Fleet fleet = new Fleet();
         System.out.println("enter buoyancy of the vessel");
         buoyancy = sc.nextInt();
@@ -64,11 +57,20 @@ public class Fleet{
         System.out.println("enter speed");
         speed = sc.nextInt();
         System.out.println("enter armament");
-        String armament = sc.next();
+        armament = sc.next();
 
-        Military military = new Military(buoyancy, size, speed, armament);
-        fleet.setShipOfFleet(military);
-        fleet.printInfoColection(fleet.getShipOfFleet());
 
+       // Military military = new Military(buoyancy, size, speed, army, armament);
+        fleet.setShipOfFleet(listOfMilitary);
+//printInfoColection(listOfMilitary);
     }
+
+    public void printInfoColection(Collection<?> list) {
+        for (Object ls : list) {
+            System.out.println(ls.toString());
+        }
+    }
+
+
+
 }

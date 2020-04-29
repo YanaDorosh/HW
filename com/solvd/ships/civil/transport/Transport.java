@@ -1,7 +1,5 @@
 package com.solvd.ships.civil.transport;
 
-import com.solvd.myException.SizeException;
-import com.solvd.myException.SpeedException;
 import com.solvd.ships.civil.Civil;
 import com.solvd.typeOfMovement.Engines.IMotor;
 
@@ -13,7 +11,7 @@ public class Transport extends Civil implements IMotor {
 
     }
 
-    public Transport(double buoyancy, int size, int speed, String classification) throws SizeException, SpeedException {
+    public Transport(double buoyancy, int size, int speed, String classification)  {
         super(buoyancy, size, speed, classification);
     }
 

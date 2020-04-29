@@ -1,7 +1,6 @@
 package com.solvd.ships.navy.military;
 
-import com.solvd.myException.SizeException;
-import com.solvd.myException.SpeedException;
+import com.solvd.placeCollections.Storage;
 import com.solvd.ships.Boat;
 import com.solvd.sіwimmingPlace.INaval;
 import com.solvd.typeOfMovement.IEngines;
@@ -10,7 +9,7 @@ import com.solvd.typeOfMovement.IEngines;
 public class Military extends Boat implements INaval, IEngines, IRangeOfBattle {
 
     private String armament;
-    private int army = 1000;
+    private int army;
     private double range = 23.6;
     private int hulls = 7;
     private String engine = " is used nuclear or motor ";
@@ -20,29 +19,24 @@ public class Military extends Boat implements INaval, IEngines, IRangeOfBattle {
 
     }
 
-    public Military(double buoyancy, int size, int speed, String armament) throws SizeException, SpeedException {
+    public Military(double buoyancy, int size, int speed, int army, String armament)  {
         super(buoyancy, size, speed);
         this.armament = armament;
-    }
-
-    public void setArmy(int value) {
-        this.army = value;
-    }
-
-    public int getArmy() {
-        return this.army;
-
+        this.army = army;
     }
 
     public void setArmament(String value) {
         this.armament = value;
     }
-
     public String getArmament() {
         return this.armament;
-
     }
-
+    public void setArmy(int army) {
+        this.army = army;
+    }
+    public int getArmy() {
+        return army;
+    }
 
     @Override
     public int hulls() {
@@ -57,14 +51,17 @@ public class Military extends Boat implements INaval, IEngines, IRangeOfBattle {
 
     @Override
     public double BattlesRange() {
-        this.range *= isMiters * getSize();
+        this.range = isMiters * getSize();
         return range;
     }
 
     public String getInfoMilitary() {
+
         String armament = "    Armament: " + getArmament();
-        return "Type Warship." + getInfoBoat() + armament + "   Range of Battle  " + BattlesRange()
-                + getInfoNaval() + "   Hulls  " + hulls() + "   Army " + getArmy();
+        String army = "   Army "  + getArmy();
+
+        return Storage.count++ + "  Type Warship." + getInfoBoat()+ army  + armament +
+                "   Range of Battle  " + BattlesRange()  + getInfoNaval() + "   Hulls  " + hulls() ;
     }
 
     @Override

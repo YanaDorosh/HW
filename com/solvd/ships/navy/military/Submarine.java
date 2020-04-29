@@ -14,8 +14,8 @@ public class Submarine extends Military implements INuclear {
     public Submarine() {
     }
 
-    public Submarine(double buoyancy, int size, int speed, String armament) throws SpeedException, SizeException {
-        super(buoyancy, size, speed, armament);
+    public Submarine(double buoyancy, int size, int speed, int army, String armament) throws SpeedException, SizeException {
+        super(buoyancy, size, speed, army, armament);
 
     }
 

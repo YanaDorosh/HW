@@ -1,7 +1,5 @@
 package com.solvd.ships.civil.service.servicetype;
 
-import com.solvd.myException.SizeException;
-import com.solvd.myException.SpeedException;
 import com.solvd.ships.civil.service.Service;
 
 public class Fishing extends Service {
@@ -14,7 +12,7 @@ public class Fishing extends Service {
 
     }
 
-    public Fishing(double buoyancy, int size, int speed, String classification, int ton) throws SizeException, SpeedException {
+    public Fishing(double buoyancy, int size, int speed, String classification, int ton)  {
         super(buoyancy, size, speed, classification);
         this.ton = ton;
     }
@@ -24,13 +22,8 @@ public class Fishing extends Service {
         return kilometer;
     }
 
-    public int distance(int kilometer) {
-        kilometer = ((int) this.ton / (int) this.KILOMITR) * 100;
-        return kilometer;
-    }
-
     public double distance(double ton) {
-        double kilometer = KILOMITR * ton;
+        double kilometer =(this.ton / this.KILOMITR) * 100;
         return kilometer;
     }
 

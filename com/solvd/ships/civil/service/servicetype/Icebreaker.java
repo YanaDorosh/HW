@@ -1,7 +1,5 @@
 package com.solvd.ships.civil.service.servicetype;
 
-import com.solvd.myException.SizeException;
-import com.solvd.myException.SpeedException;
 import com.solvd.ships.civil.service.Service;
 import com.solvd.sіwimmingPlace.INaval;
 
@@ -14,7 +12,7 @@ public final class Icebreaker extends Service implements INaval {
 
     }
 
-    public Icebreaker(double buoyancy, int size, int speed, String classification) throws SizeException, SpeedException {
+    public Icebreaker(double buoyancy, int size, int speed, String classification)  {
         super(buoyancy, size, speed, classification);
     }
 

@@ -1,10 +1,9 @@
 package com.solvd.ships.civil;
 
-import com.solvd.myException.SizeException;
-import com.solvd.myException.SpeedException;
+import com.solvd.placeCollections.Storage;
 import com.solvd.ships.Boat;
-import com.solvd.typeOfMovement.IAutomotive;
 import com.solvd.sіwimmingPlace.INaval;
+import com.solvd.typeOfMovement.IAutomotive;
 
 public class SailingBoat extends Boat implements INaval, IAutomotive {
 
@@ -15,7 +14,7 @@ public class SailingBoat extends Boat implements INaval, IAutomotive {
 
     }
 
-    public SailingBoat(double buoyancy, int size, int speed, int sailings) throws SizeException, SpeedException {
+    public SailingBoat(double buoyancy, int size, int speed, int sailings) {
         super(buoyancy, size, speed);
         this.sailings = sailings;
     }
@@ -27,9 +26,9 @@ public class SailingBoat extends Boat implements INaval, IAutomotive {
 
     @Override
     public String getInfoAutomotive() {
-        String infoSailing = "    Namber of sails: " + sailings();
-        return "Type Sail boat. " + getInfoBoat() + infoSailing + combinePower()
-                + String.valueOf(hulls()) + getInfoNaval();
+        String infoSailing = "    Number of sails: " + sailings();
+        return Storage.count++ + " Type Sail boat. " + getInfoBoat() + infoSailing + combinePower()
+                + "   Hulls:  " + hulls() + " " + getInfoNaval();
     }
 
     @Override
@@ -43,7 +42,7 @@ public class SailingBoat extends Boat implements INaval, IAutomotive {
 
     @Override
     public String getInfoNaval() {
-        return " Swimming place: sea. ";
+        return isNaval;
     }
 
     @Override
