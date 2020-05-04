@@ -1,7 +1,5 @@
 package com.solvd.ships.navy.military;
 
-import com.solvd.myException.SizeException;
-import com.solvd.myException.SpeedException;
 import com.solvd.typeOfMovement.Engines.INuclear;
 
 public class Submarine extends Military implements INuclear {
@@ -14,7 +12,7 @@ public class Submarine extends Military implements INuclear {
     public Submarine() {
     }
 
-    public Submarine(double buoyancy, int size, int speed, int army, String armament) throws SpeedException, SizeException {
+    public Submarine(double buoyancy, int size, int speed, int army, String armament)  {
         super(buoyancy, size, speed, army, armament);
 
     }
@@ -41,7 +39,7 @@ public class Submarine extends Military implements INuclear {
     }
 
     public String getInfoSubmarine() {
-        return getInfoMilitary() + getInfoNuclearEngine();
+        return "Submarine" + getInfoMilitary() + getInfoNuclearEngine();
 
     }
 

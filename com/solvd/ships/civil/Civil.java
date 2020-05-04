@@ -1,6 +1,5 @@
 package com.solvd.ships.civil;
 
-import com.solvd.placeCollections.Storage;
 import com.solvd.ships.Boat;
 import com.solvd.typeOfMovement.IEngines;
 
@@ -20,7 +19,7 @@ public class Civil extends Boat implements IEngines {
     }
 
     public String getInfoCivil() {
-        return Storage.count++ + " Civil. " + getInfoBoat() + getInfoEngine();
+        return Boat.count++ + " Civil. " + getInfoBoat() + getInfoEngine();
     }
 
     @Override

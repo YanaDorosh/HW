@@ -1,53 +1,72 @@
 package com.solvd.menu;
 
-import com.solvd.placeCollections.Storage;
+import com.solvd.constatnts.IConstants;
+import com.solvd.placeCollections.Port;
 import com.solvd.ships.civil.service.servicetype.Fishing;
+import com.solvd.utils.FileIO;
 
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
-public class FishingMenu {
+public class FishingMenu implements IConstants {
 
     private MenuMethods methods = new MenuMethods();
+    private FileIO fileIO = new FileIO();
     private Scanner sc = new Scanner(System.in);
+    private Port port = new Port();
+    private MainMenu mainMenu;
     private Fishing fishing;
     private String classification;
     private int ton;
 
+
+    public void chooseAction() {
+        methods.chooseAction();
+        if (methods.action == 1) {
+            executeSetMenu(port);
+        } else {
+            if (methods.action == 2) {
+                fileIO.readFromFile(PATH);
+                mainMenu.choosePlace();
+            }
+        }
+    }
     /**
      * A menu for HashSet collection that implements
      * the functions of adding items, deleting and displaying information
      */
 
-    public void executeMenu2(Storage storage) {
+    public void executeMenu(Port port) {
 
         int menu2 = sc.nextInt();
         switch (menu2) {
             case 0:
-                executeSetMenu(methods.storage);
+                executeSetMenu(port);
                 methods.menuChoice();
-                executeMenu2(storage);
+                executeMenu(port);
                 break;
             case 1:
-                deletingSet(methods.storage);
+                deletingSet(port);
                 methods.menuChoice();
-                executeMenu2(storage);
+                executeMenu(port);
                 break;
             case 2:
-                storage.printInfoColection(methods.storage.getFishingSet());
+                port.printInfoColection(port.getFishingSet());
                 methods.menuChoice();
-                executeMenu2(storage);
+                executeMenu(port);
                 break;
             case 3:
-                methods.mainMenu.getMenuNumber();
-                break;
+                fileIO.writeToFile(PATH, port.getFishingSet());
             case 4:
+                methods.mainMenu.choosePlace();
+                break;
+            case 5:
                 System.out.println("Thanks for using the application");
                 System.exit(0);
                 break;
             default:
                 System.out.println("enter correct number");
-                executeMenu2(methods.storage);
+                executeMenu(port);
                 sc.close();
         }
 
@@ -57,15 +76,15 @@ public class FishingMenu {
      * Method pass objects to collections and re-implement the second menu of choosing actions
      */
 
-    public void executeSetMenu(Storage storage) {
+    public void executeSetMenu(Port port) {
 
         methods.loopNumberOfShips();
         for (int i = 1; i <= methods.ships; i++) {
-            methods.getInfoMenu(methods.storage);
-            createObjectSet(methods.storage);
+            methods.getInfoMenu();
+            createObjectSet(port);
         }
         methods.menuChoice();
-        executeMenu2(storage);
+        executeMenu(port);
     }
 
 
@@ -73,21 +92,19 @@ public class FishingMenu {
      * Methods create objects for collections
      */
 
-    public void createObjectSet(Storage storage) {
+    public void createObjectSet(Port port) {
         System.out.print("enter the classification - ");
         classification = sc.next();
-
         try {
             System.out.print("enter ton -                ");
             ton = sc.nextInt();
-
         } catch (InputMismatchException e) {
             System.out.println("number is incorrect");
             ton = 0;
             System.out.println("Ton: 2" + ton);
         }
         fishing = new Fishing(methods.buoyancy, methods.size, methods.speed, classification, ton);
-        storage.setFishingSet(fishing);
+        port.setFishingSet(fishing);
 
     }
 
@@ -95,8 +112,8 @@ public class FishingMenu {
      * Methods implement deleting items from collections
      */
 
-    public void deletingSet(Storage storage) {
+    public void deletingSet(Port port) {
         methods.deleteAndCatch();
-        storage.removeFishing(methods.delete - 1);
+        port.removeFishing(methods.delete - 1);
     }
 }

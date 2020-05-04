@@ -1,6 +1,5 @@
 package com.solvd.ships.civil;
 
-import com.solvd.placeCollections.Storage;
 import com.solvd.ships.Boat;
 import com.solvd.sіwimmingPlace.INaval;
 import com.solvd.typeOfMovement.IAutomotive;
@@ -27,7 +26,7 @@ public class SailingBoat extends Boat implements INaval, IAutomotive {
     @Override
     public String getInfoAutomotive() {
         String infoSailing = "    Number of sails: " + sailings();
-        return Storage.count++ + " Type Sail boat. " + getInfoBoat() + infoSailing + combinePower()
+        return Boat.count++ + " Type Sail boat. " + getInfoBoat() + infoSailing + combinePower()
                 + "   Hulls:  " + hulls() + " " + getInfoNaval();
     }
 

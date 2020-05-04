@@ -2,6 +2,7 @@
 package com.solvd.placeCollections;
 
 
+import com.solvd.ships.Boat;
 import com.solvd.ships.civil.Civil;
 import com.solvd.ships.civil.SailingBoat;
 import com.solvd.ships.civil.service.servicetype.Fishing;
@@ -9,9 +10,9 @@ import com.solvd.ships.navy.military.Military;
 
 import java.util.*;
 
-public class Storage {
-    public static int count = 1;
-    public List<Military> militaryList = new ArrayList<>();
+public class Port {
+
+    private List<Military> militaryList = new ArrayList<>();
     private LinkedList<Civil> linkedListCivils = new LinkedList<>();
     private Set<Fishing> fishingSet = new HashSet<>();
     private Map<Integer, SailingBoat> sailingBoatMap = new HashMap<>();
@@ -20,9 +21,9 @@ public class Storage {
      * Member of the class for HashMap key
      */
 
-    private int key = 0;
+    public int key = 0;
 
-    public Storage() {
+    public Port() {
 
     }
 
@@ -31,6 +32,9 @@ public class Storage {
             System.out.println(ls.toString());
         }
     }
+//    public void printInfoCollection(Map<Integer, ?> map, String value) {
+//        System.out.println(map.get(value));
+//    }
 
     public void setMilitary(Military military) {
         militaryList.add(military);
@@ -41,7 +45,7 @@ public class Storage {
     }
 
     public List<Military> getMilitaryList() {
-        countNumeration();
+        Boat.countNumeration();
         return militaryList;
     }
 
@@ -54,7 +58,7 @@ public class Storage {
     }
 
     public List<Civil> getlinkedListCivils() {
-        countNumeration();
+        Boat.countNumeration();
         return linkedListCivils;
     }
 
@@ -63,7 +67,7 @@ public class Storage {
     }
 
     public Set<Fishing> getFishingSet() {
-        countNumeration();
+        Boat.countNumeration();
         return fishingSet;
     }
 
@@ -77,7 +81,7 @@ public class Storage {
     }
 
     public Map<Integer, SailingBoat> getSailingBoatMap() {
-        countNumeration();
+        Boat.countNumeration();
         return sailingBoatMap;
     }
 
@@ -85,11 +89,7 @@ public class Storage {
         sailingBoatMap.remove(key);
     }
 
-    public static void countNumeration() {
-        if (count != 1) {
-            count = 1;
-        }
-    }
+
 
 }
 

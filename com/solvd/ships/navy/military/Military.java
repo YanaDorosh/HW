@@ -1,6 +1,5 @@
 package com.solvd.ships.navy.military;
 
-import com.solvd.placeCollections.Storage;
 import com.solvd.ships.Boat;
 import com.solvd.sіwimmingPlace.INaval;
 import com.solvd.typeOfMovement.IEngines;
@@ -60,7 +59,7 @@ public class Military extends Boat implements INaval, IEngines, IRangeOfBattle {
         String armament = "    Armament: " + getArmament();
         String army = "   Army "  + getArmy();
 
-        return Storage.count++ + "  Type Warship." + getInfoBoat()+ army  + armament +
+        return Boat.count++ + "  Type Warship." + getInfoBoat()+ army  + armament + getInfoEngine()+
                 "   Range of Battle  " + BattlesRange()  + getInfoNaval() + "   Hulls  " + hulls() ;
     }
 
