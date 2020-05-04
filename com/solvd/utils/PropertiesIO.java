@@ -25,10 +25,10 @@ public class PropertiesIO {
     public void setValueToProperties(String path, String key, Collection<?> value) {
         Properties properties = new Properties();
         try {
-            FileOutputStream fr = new FileOutputStream(path);
+            FileOutputStream outputStream = new FileOutputStream(path);
             properties.setProperty(key, String.valueOf(value));
-            properties.store(fr, "");
-            fr.close();
+            properties.store(outputStream, "");
+            outputStream.close();
         } catch (IOException e) {
             e.printStackTrace();
         }

@@ -11,10 +11,10 @@ import java.util.Scanner;
 public class SailingBoatMenu implements IConstants {
 
     private MenuMethods methods = new MenuMethods();
-    private PropertiesIO propertiesIO= new PropertiesIO();
+    private PropertiesIO propertiesIO = new PropertiesIO();
     private Scanner sc = new Scanner(System.in);
     private Port port = new Port();
-    private MainMenu mainMenu;
+    private MainMenu mainMenu = new MainMenu();
     private int sail;
     private int ton;
     private SailingBoat sailingBoat;
@@ -24,12 +24,13 @@ public class SailingBoatMenu implements IConstants {
         if (methods.action == 1) {
             executeMapMenu(port);
         } else {
-            if (methods.action == 2) {
-                propertiesIO.getValueFromProperties(PATH3,"1");
-                mainMenu.choosePlace();
+            for (int i = 1; i <= 3; i++) {
+                System.out.println(propertiesIO.getValueFromProperties(PATH3, String.valueOf(i)));
             }
+            mainMenu.choosePlace();
         }
     }
+
     /**
      * A menu for HashMap collection that implements
      * the functions of adding items, deleting and displaying information
@@ -55,7 +56,7 @@ public class SailingBoatMenu implements IConstants {
                 executeMenu(port);
                 break;
             case 3:
-                propertiesIO.setValueToProperties(PATHSECOND, String.valueOf(port.key++), port.getSailingBoatMap().values());
+                propertiesIO.setValueToProperties(PATHSECOND, String.valueOf(port.key), port.getSailingBoatMap().values());
             case 4:
                 methods.mainMenu.choosePlace();
                 break;
@@ -93,10 +94,12 @@ public class SailingBoatMenu implements IConstants {
         try {
             System.out.print("enter number of sails -    ");
             sail = sc.nextInt();
+            System.out.println("___________________________________________________" +
+                    "______________________________________________");
         } catch (InputMismatchException e) {
             System.out.println("number is incorrect ");
             sail = 0;
-            System.out.println("Sails:" + ton);
+            System.out.println("Sails:" + sail);
         }
         sailingBoat = new SailingBoat(methods.buoyancy, methods.size, methods.speed, sail);
         port.setSailigBoat(sailingBoat);

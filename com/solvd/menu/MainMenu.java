@@ -13,7 +13,7 @@ public class MainMenu {
             System.out.println("Choose a place:  ");
             System.out.println("Fleet:____________1");
             System.out.println("Port:_____________2");
-            System.out.println("Exit:------------>3");
+            System.out.println("3<-------------Exit");
             int place = sc.nextInt();
             switch (place) {
                 case 1:
@@ -43,7 +43,7 @@ public class MainMenu {
             System.out.println("Choose a ship:");
             System.out.println("Military ship:  1");
             System.out.println("Submarine:      2");
-            System.out.println("Main menu------>3");
+            System.out.println("3<------Main menu");
             militaryShip = sc.nextInt();
             switch (militaryShip) {
                 case (1):

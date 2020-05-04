@@ -14,7 +14,7 @@ public class FishingMenu implements IConstants {
     private FileIO fileIO = new FileIO();
     private Scanner sc = new Scanner(System.in);
     private Port port = new Port();
-    private MainMenu mainMenu;
+    private MainMenu mainMenu = new MainMenu();
     private Fishing fishing;
     private String classification;
     private int ton;
@@ -25,12 +25,11 @@ public class FishingMenu implements IConstants {
         if (methods.action == 1) {
             executeSetMenu(port);
         } else {
-            if (methods.action == 2) {
-                fileIO.readFromFile(PATH);
-                mainMenu.choosePlace();
-            }
+            fileIO.readFromFile(PATH);
+            mainMenu.choosePlace();
         }
     }
+
     /**
      * A menu for HashSet collection that implements
      * the functions of adding items, deleting and displaying information
@@ -95,6 +94,7 @@ public class FishingMenu implements IConstants {
     public void createObjectSet(Port port) {
         System.out.print("enter the classification - ");
         classification = sc.next();
+
         try {
             System.out.print("enter ton -                ");
             ton = sc.nextInt();
@@ -103,6 +103,8 @@ public class FishingMenu implements IConstants {
             ton = 0;
             System.out.println("Ton: 2" + ton);
         }
+        System.out.println("___________________________________________________" +
+                "______________________________________________");
         fishing = new Fishing(methods.buoyancy, methods.size, methods.speed, classification, ton);
         port.setFishingSet(fishing);
 

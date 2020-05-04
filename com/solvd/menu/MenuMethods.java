@@ -106,8 +106,8 @@ public class MenuMethods implements IConstants {
     public void chooseAction() {
         try {
             System.out.println("Choose an action:");
-            System.out.println("add information          1");
-            System.out.println("read from file:          2");
+            System.out.println("add information________1");
+            System.out.println("read from file:________2");
             action = sc.nextInt();
         } catch (InputMismatchException e) {
             System.out.println("Please choose correct number");

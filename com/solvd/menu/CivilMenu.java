@@ -21,12 +21,10 @@ public class CivilMenu implements IConstants {
         methods.chooseAction();
         if (methods.action == 1) {
             executeLinkedMenu(port);
-        } else {
-            if (methods.action == 2) {
+        } else{
                 fileIO.readFromFile(PATH);
                 mainMenu.choosePlace();
             }
-        }
     }
     /**
      * A menu for LinkedList collection that implements
@@ -91,6 +89,8 @@ public class CivilMenu implements IConstants {
     public void createObjectLinked(Port port) {
         System.out.print("enter the classification - ");
         classification = sc.next();
+        System.out.println("___________________________________________________" +
+                "______________________________________________");
         civil = new Civil(methods.buoyancy, methods.size, methods.speed, classification);
         port.setCivil(civil);
     }

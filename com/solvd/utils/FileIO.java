@@ -2,6 +2,7 @@ package com.solvd.utils;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Collection;
 import java.util.Scanner;
@@ -10,6 +11,15 @@ public class FileIO {
 
     public String readFromFile(String path) {
         File file = new File(path);
+        try {
+            if (file.createNewFile()){
+                System.out.println("File is created!");
+            }else{
+                System.out.println("File already exists.");
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         Scanner scanner = null;
         try {
             scanner = new Scanner(file);

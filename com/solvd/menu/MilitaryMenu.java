@@ -14,7 +14,7 @@ public class MilitaryMenu implements IConstants {
     private FileIO fileIO = new FileIO();
     private Scanner sc = new Scanner(System.in);
     private Port port = new Port();
-    private MainMenu mainMenu;
+    private MainMenu mainMenu = new MainMenu();
     private Military military;
     private int army;
     private String armament;
@@ -25,10 +25,8 @@ public class MilitaryMenu implements IConstants {
         if (methods.action == 1) {
             executeArrayMenu(port);
         } else {
-            if (methods.action == 2) {
                 fileIO.readFromFile(PATH);
                 mainMenu.choosePlace();
-            }
         }
     }
 
@@ -104,6 +102,8 @@ public class MilitaryMenu implements IConstants {
         }
         System.out.print("Enter armament -           ");
         armament = sc.next();
+        System.out.println("___________________________________________________" +
+                "______________________________________________");
         military = new Military(methods.buoyancy, methods.size, methods.speed, army, armament);
         port.setMilitary(military);
 

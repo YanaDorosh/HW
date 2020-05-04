@@ -27,16 +27,15 @@ public class FleetMenu implements IConstants {
      * A menu for ArrayList collection that implements
      * the functions of adding items, deleting and displaying information
      */
-    public void chooseAction(){
+    public void chooseAction() {
         methods.chooseAction();
         if (methods.action == 1) {
             executeFleetMenu(fleet);
-        }else {
-            if (methods.action == 2) {
-                fileIO.readFromFile(PATH);
-                mainMenu.choosePlace();
-            }
+        } else {
+            fileIO.readFromFile(PATH);
+            mainMenu.choosePlace();
         }
+
     }
 
     public void executeMenu(Fleet fleet) {
@@ -55,7 +54,7 @@ public class FleetMenu implements IConstants {
             case 2:
                 if (mainMenu.militaryShip == 1) {
                     fleet.printInfoColection(fleet.getMilitaryList());
-                }else  {
+                } else {
                     fleet.printInfoColection(fleet.getSubmarineList());
                 }
 
@@ -65,7 +64,7 @@ public class FleetMenu implements IConstants {
             case 3:
                 if (mainMenu.militaryShip == 1) {
                     fileIO.writeToFile(PATH, fleet.getMilitaryList());
-                }else {
+                } else {
                     fileIO.writeToFile(PATH, fleet.getSubmarineList());
                 }
             case 4:
@@ -119,7 +118,7 @@ public class FleetMenu implements IConstants {
         if (mainMenu.militaryShip == 1) {
             military = new Military(methods.buoyancy, methods.size, methods.speed, army, armament);
             fleet.setMilitary(military);
-        }else {
+        } else {
             submarine = new Submarine(methods.buoyancy, methods.size, methods.speed, army, armament);
             fleet.setSubmarine(submarine);
         }
