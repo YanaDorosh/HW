@@ -1,0 +1,25 @@
+<specifications>
+    <characteristics>
+        <title>Linear characteristics of the vessel</title>
+        <maximum_length>Lex</maximum_length>
+        <distance>L</distance>
+        <largest_breadth>Milestone</largest_breadth>
+        <waterlines_width>B</waterlines_width>
+        <side_height>D</side_height>
+    </characteristics>
+    <characteristics>
+        <title>Volumetric characteristics of the vessel</title>
+        <capacity>W</capacity>
+        <bale_capacity>Wк</bale_capacity>
+        <cargo_capacity>Wz</cargo_capacity>
+        <carrying_capacity>w</carrying_capacity>
+    </characteristics>
+    <characteristics>
+        <title>Cargo characteristics of the vessel</title>
+        <characteristic_1>Specific cargo capacity</characteristic_1>
+        <characteristic_2>The coefficient of structural unevenness of the holds</characteristic_2>
+        <characteristic_3>The number and size of hatches, coefficient of luminosity</characteristic_3>
+        <characteristic_4>The number of decks and their area, permissible loads on the decks</characteristic_4>
+        <characteristic_5>Technical means of ventilation and microclimate regulation in cargo areas</characteristic_5>
+    </characteristics>
+</specifications>

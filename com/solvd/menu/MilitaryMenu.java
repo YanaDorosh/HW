@@ -1,19 +1,16 @@
 package com.solvd.menu;
 
-import com.solvd.constatnts.IConstants;
-import com.solvd.placeCollections.Port;
+import com.solvd.placeCollections.Roadstead;
 import com.solvd.ships.navy.military.Military;
-import com.solvd.utils.FileIO;
 
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
-public class MilitaryMenu implements IConstants {
+public class MilitaryMenu{
 
     private MenuMethods methods = new MenuMethods();
-    private FileIO fileIO = new FileIO();
     private Scanner sc = new Scanner(System.in);
-    private Port port = new Port();
+    private Roadstead roadstead = new Roadstead();
     private MainMenu mainMenu = new MainMenu();
     private Military military;
     private int army;
@@ -22,11 +19,17 @@ public class MilitaryMenu implements IConstants {
 
     public void chooseAction() {
         methods.chooseAction();
-        if (methods.action == 1) {
-            executeArrayMenu(port);
-        } else {
-                fileIO.readFromFile(PATH);
-                mainMenu.choosePlace();
+        switch (methods.action) {
+            case 1:
+                executeArrayMenu(roadstead);
+                break;
+            case 2:
+                methods.fileIO.readFromFile(methods.propertiesIO.getValueFromProperties(4));
+                break;
+            default:
+                System.out.println("enter correct number");
+                chooseAction();
+                break;
         }
     }
 
@@ -35,27 +38,28 @@ public class MilitaryMenu implements IConstants {
      * the functions of adding items, deleting and displaying information
      */
 
-    public void executeMenu(Port port) {
+    public void executeMenu(Roadstead roadstead) {
 
         int menu2 = sc.nextInt();
         switch (menu2) {
             case 0:
-                executeArrayMenu(port);
+                executeArrayMenu(roadstead);
                 methods.menuChoice();
-                executeMenu(port);
+                executeMenu(roadstead);
                 break;
             case 1:
-                deletingArray(port);
+                deletingArray(roadstead);
                 methods.menuChoice();
-                executeMenu(port);
+                executeMenu(roadstead);
                 break;
             case 2:
-                port.printInfoColection(port.getMilitaryList());
+                roadstead.printInfoColection(roadstead.getMilitaryList());
                 methods.menuChoice();
-                executeMenu(port);
+                executeMenu(roadstead);
                 break;
             case 3:
-                fileIO.writeToFile(PATH, port.getMilitaryList());
+                methods.fileIO.writeToFile( methods.propertiesIO.getValueFromProperties(1),
+                        roadstead.getMilitaryList());
             case 4:
                 methods.mainMenu.choosePlace();
                 break;
@@ -66,7 +70,7 @@ public class MilitaryMenu implements IConstants {
                 break;
             default:
                 System.out.println("enter correct number");
-                executeMenu(port);
+                executeMenu(roadstead);
         }
 
     }
@@ -76,21 +80,21 @@ public class MilitaryMenu implements IConstants {
      * Method pass objects to collections and re-implement the second menu of choosing actions
      */
 
-    public void executeArrayMenu(Port port) {
+    public void executeArrayMenu(Roadstead roadstead) {
         methods.loopNumberOfShips();
         for (int i = 1; i <= methods.ships; i++) {
             methods.getInfoMenu();
-            createObjectArray(port);
+            createObjectArray(roadstead);
         }
         methods.menuChoice();
-        executeMenu(port);
+        executeMenu(roadstead);
     }
 
     /**
      * Methods create objects for collections
      */
 
-    public void createObjectArray(Port port) {
+    public void createObjectArray(Roadstead roadstead) {
         try {
             System.out.print("Enter army -               ");
             army = sc.nextInt();
@@ -105,7 +109,7 @@ public class MilitaryMenu implements IConstants {
         System.out.println("___________________________________________________" +
                 "______________________________________________");
         military = new Military(methods.buoyancy, methods.size, methods.speed, army, armament);
-        port.setMilitary(military);
+        roadstead.setMilitary(military);
 
     }
 
@@ -113,9 +117,9 @@ public class MilitaryMenu implements IConstants {
      * Methods implement deleting items from collections
      */
 
-    public void deletingArray(Port port) {
+    public void deletingArray(Roadstead roadstead) {
         methods.deleteAndCatch();
-        port.removeMilitary(methods.delete - 1);
+        roadstead.removeMilitary(methods.delete - 1);
     }
 
 }

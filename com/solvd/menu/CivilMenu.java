@@ -1,57 +1,63 @@
 package com.solvd.menu;
 
-import com.solvd.constatnts.IConstants;
-import com.solvd.placeCollections.Port;
+import com.solvd.placeCollections.Roadstead;
 import com.solvd.ships.civil.Civil;
-import com.solvd.utils.FileIO;
+
 
 import java.util.Scanner;
 
-public class CivilMenu implements IConstants {
+public class CivilMenu {
 
     private MenuMethods methods = new MenuMethods();
-    private FileIO fileIO = new FileIO();
     private Scanner sc = new Scanner(System.in);
-    private Port port = new Port();
+    private Roadstead roadstead = new Roadstead();
     private MainMenu mainMenu;
     private String classification;
     private Civil civil;
 
     public void chooseAction() {
         methods.chooseAction();
-        if (methods.action == 1) {
-            executeLinkedMenu(port);
-        } else{
-                fileIO.readFromFile(PATH);
-                mainMenu.choosePlace();
-            }
+        switch (methods.action) {
+            case 1:
+                executeLinkedMenu(roadstead);
+                break;
+            case 2:
+                methods.fileIO.readFromFile(methods.propertiesIO.getValueFromProperties(2));
+                break;
+            default:
+                System.out.println("enter correct number");
+                chooseAction();
+                break;
+        }
     }
+
+
     /**
      * A menu for LinkedList collection that implements
      * the functions of adding items, deleting and displaying information
      */
 
-    public void executeMenu(Port port) {
-
+    public void executeMenu(Roadstead roadstead) {
         int menu2 = sc.nextInt();
         switch (menu2) {
             case 0:
-                executeLinkedMenu(port);
+                executeLinkedMenu(roadstead);
                 methods.menuChoice();
-                executeMenu(port);
+                executeMenu(roadstead);
                 break;
             case 1:
-                deletingLinked(port);
+                deletingLinked(roadstead);
                 methods.menuChoice();
-                executeMenu(port);
+                executeMenu(roadstead);
                 break;
             case 2:
-                port.printInfoColection(port.getlinkedListCivils());
+                roadstead.printInfoColection(roadstead.getlinkedListCivils());
                 methods.menuChoice();
-                executeMenu(port);
+                executeMenu(roadstead);
                 break;
             case 3:
-                fileIO.writeToFile(PATH, port.getlinkedListCivils());
+                methods.fileIO.writeToFile(methods.propertiesIO.getValueFromProperties(1),
+                        roadstead.getlinkedListCivils());
             case 4:
                 methods.mainMenu.choosePlace();
                 break;
@@ -61,7 +67,7 @@ public class CivilMenu implements IConstants {
                 break;
             default:
                 System.out.println("enter correct number");
-                executeMenu(port);
+                executeMenu(roadstead);
                 sc.close();
         }
 
@@ -71,14 +77,14 @@ public class CivilMenu implements IConstants {
      * Method pass objects to collections and re-implement the second menu of choosing actions
      */
 
-    public void executeLinkedMenu(Port port) {
+    public void executeLinkedMenu(Roadstead roadstead) {
         methods.loopNumberOfShips();
         for (int i = 1; i <= methods.ships; i++) {
-           methods.getInfoMenu();
-            createObjectLinked(port);
+            methods.getInfoMenu();
+            createObjectLinked(roadstead);
         }
         methods.menuChoice();
-        executeMenu(port);
+        executeMenu(roadstead);
 
     }
 
@@ -86,22 +92,22 @@ public class CivilMenu implements IConstants {
      * Methods create objects for collections
      */
 
-    public void createObjectLinked(Port port) {
+    public void createObjectLinked(Roadstead roadstead) {
         System.out.print("enter the classification - ");
         classification = sc.next();
         System.out.println("___________________________________________________" +
                 "______________________________________________");
         civil = new Civil(methods.buoyancy, methods.size, methods.speed, classification);
-        port.setCivil(civil);
+        roadstead.setCivil(civil);
     }
 
     /**
      * Methods implement deleting items from collections
      */
 
-    public void deletingLinked(Port port) {
+    public void deletingLinked(Roadstead roadstead) {
         methods.deleteAndCatch();
-        port.removeCivil(methods.delete - 1);
+        roadstead.removeCivil(methods.delete - 1);
     }
 
 }

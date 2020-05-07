@@ -1,0 +1,40 @@
+<crew>
+    <crewman>
+        <position>Captain</position>
+        <name>James T. Kirk</name>
+        <age>42</age>
+        <experience>23</experience>
+        <languages>English, Spanish, Italian</languages>
+    </crewman>
+    <crewman>
+        <position>First/Executive Officer/Science Officer</position>
+        <name>Spock</name>
+        <age>40</age>
+        <experience>22</experience>
+        <languages>English, Spanish, Portuguese</languages>
+    </crewman>
+    <crewman>
+        <position>Bosun</position>
+        <name>Nyota Uhura</name>
+        <age>45</age>
+        <experience>21</experience>
+        <languages>English, German, Portuguese,</languages>
+
+    </crewman>
+    <crewman>
+        <position>Engineer</position>
+        <name>Montgomery "Scotty" Scott</name>
+        <age>38</age>
+        <experience>15</experience>
+        <languages>English, Italian, French, Chinese</languages>
+
+    </crewman>
+    <crewman>
+        <position>Cook/Medical Purser</position>
+        <name>Leonard "Bones" McCoy</name>
+        <age>48</age>
+        <experience>10</experience>
+        <languages>English, Italian, French</languages>
+    </crewman>
+
+</crew>

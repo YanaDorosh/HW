@@ -4,6 +4,8 @@ import com.solvd.constatnts.IConstants;
 import com.solvd.myException.BouyancyException;
 import com.solvd.myException.SizeException;
 import com.solvd.myException.SpeedException;
+import com.solvd.utils.FileIO;
+import com.solvd.utils.PropertiesIO;
 
 import java.util.InputMismatchException;
 import java.util.Scanner;
@@ -22,6 +24,8 @@ public class MenuMethods implements IConstants {
     protected MainMenu mainMenu = new MainMenu();
     protected int delete;
     private int minSize = 3;
+    protected PropertiesIO propertiesIO = new PropertiesIO();
+    protected FileIO fileIO = new FileIO();
 
     /**
      * Gets a common of information for all classes
@@ -83,14 +87,18 @@ public class MenuMethods implements IConstants {
             while (ships <= 0);
         } catch (InputMismatchException e) {
             System.out.println("Please enter a number");
-            mainMenu.choosePort();
+            mainMenu.chooseRoadstead();
         }
 
     }
 
-    public void deleteAndCatch() throws InputMismatchException {
-        System.out.println("for deleting enter number of element");
-        delete = sc.nextInt();
+    public void deleteAndCatch() {
+        try {
+            System.out.println("for deleting enter number of element");
+            delete = sc.nextInt();
+        }catch (InputMismatchException e){
+            e.getMessage();
+        }
     }
 
     /**

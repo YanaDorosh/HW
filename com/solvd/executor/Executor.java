@@ -1,10 +1,9 @@
 package com.solvd.executor;
 
 
-import com.solvd.constatnts.IConstants;
 import com.solvd.menu.MainMenu;
 
-public class Executor implements IConstants {
+public class Executor  {
 
     public static void main(String[] args) {
 

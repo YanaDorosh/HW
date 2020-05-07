@@ -1,0 +1,37 @@
+<icebreakers>
+    <icebreaker>
+        <name>Sovetskiy Soyuz</name>
+        <in_service>1990–2014</in_service>
+        <project_number>10521-2</project_number>
+        <class>Arktika</class>
+        <comments>Awaiting scrapping as of 2017.</comments>
+    </icebreaker>
+    <icebreaker>
+        <name>Lenin</name>
+        <in_service>1959–1989</in_service>
+        <project_number>92M</project_number>
+        <class>-</class>
+        <comments>Museum ship</comments>
+    </icebreaker>
+    <icebreaker>
+        <name>50 Let Pobedy</name>
+        <in_service>2007–present</in_service>
+        <project_number>10521</project_number>
+        <class>Arktika</class>
+        <comments>Built as Ural, completed in 2007</comments>
+    </icebreaker>
+    <icebreaker>
+        <name>Taymyr</name>
+        <in_service>1989–present</in_service>
+        <project_number>10580-1</project_number>
+        <class>Taymyr</class>
+        <comments>-</comments>
+    </icebreaker>
+    <icebreaker>
+        <name>Sevmorput</name>
+        <in_service>1988–present</in_service>
+        <project_number>10081</project_number>
+        <class>Container ship</class>
+        <comments>Has ice-breaking bow</comments>
+    </icebreaker>
+</icebreakers>

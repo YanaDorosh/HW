@@ -5,7 +5,7 @@ import java.util.Scanner;
 
 public class MainMenu {
 
-    protected int militaryShip;
+    protected static int militaryShip;
     private Scanner sc = new Scanner(System.in);
 
     public void choosePlace() {
@@ -19,7 +19,7 @@ public class MainMenu {
                 case 1:
                     chooseFleetShip();
                 case 2:
-                    choosePort();
+                    chooseRoadstead();
                     break;
                 case 3:
                     System.exit(0);
@@ -66,7 +66,7 @@ public class MainMenu {
         }
     }
 
-    public void choosePort() {
+    public void chooseRoadstead() {
         MilitaryMenu militaryMenu = new MilitaryMenu();
         SailingBoatMenu sailingMenu = new SailingBoatMenu();
         CivilMenu civilMenu = new CivilMenu();
@@ -101,7 +101,7 @@ public class MainMenu {
                     System.exit(0);
                 default:
                     System.out.println("number is incorrect");
-                    choosePort();
+                    chooseRoadstead();
                     break;
             }
         } catch (InputMismatchException e) {

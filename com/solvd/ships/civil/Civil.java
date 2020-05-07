@@ -18,8 +18,12 @@ public class Civil extends Boat implements IEngines {
         this.classification = classification;
     }
 
+    public String getClassification() {
+        return classification;
+    }
+
     public String getInfoCivil() {
-        return Boat.count++ + " Civil. " + getInfoBoat() + getInfoEngine();
+        return Boat.count++ + " Civil. " + getInfoBoat()+  "  Сlassification: " +getClassification() + getInfoEngine();
     }
 
     @Override

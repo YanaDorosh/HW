@@ -1,0 +1,44 @@
+<amphibious_ships>
+            <title>Amphibious assault ship</title>
+            <type>
+                <title>Landing helicopter assault (LHA)</title>
+                <sub_type>
+                    <name>Tarawa class</name>
+                    <country>USA</country>
+                </sub_type>
+                <sub_type>
+                    <name>America class</name>
+                    <country>USA</country>
+                </sub_type>
+            </type>
+            <type>
+                <title>Landing helicopter dock (LHD)</title>
+                <sub_type>
+                    <name>Canberra class</name>
+                    <country>Australia</country>
+                </sub_type>
+                <sub_type>
+                    <name>Type 075</name>
+                    <country>China</country>
+                </sub_type>
+                <sub_type>
+                    <name>Wasp class</name>
+                    <country>USA</country>
+                </sub_type>
+                <sub_type>
+                    <name>Trieste</name>
+                    <country>Italy</country>
+                </sub_type>
+            </type>
+            <type>
+                <title>Landing platform helicopter (LPH)</title>
+                <sub_type>
+                    <name>Dokdo class</name>
+                    <country>South Korea</country>
+                </sub_type>
+                <sub_type>
+                    <name>Atlântico</name>
+                    <country>Brazil</country>
+                </sub_type>
+            </type>
+</amphibious_ships>

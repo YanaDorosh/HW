@@ -1,0 +1,42 @@
+<aircrafts>
+    <aircraft id="65845">
+        <name>Canberra</name>
+        <country>Australia</country>
+        <hull>L02</hull>
+        <lenght>230 m</lenght>
+        <tonnage>27,100 t</tonnage>
+        <year>2014</year>
+    </aircraft>
+    <aircraft id="55248">
+        <name>Atlântico</name>
+        <country>Brazil</country>
+        <hull>A140</hull>
+        <lenght>203.4 m</lenght>
+        <tonnage>21,500 t</tonnage>
+        <year>2018</year>
+    </aircraft>
+    <aircraft id="53585">
+        <name>Liaoning</name>
+        <country>China</country>
+        <hull>16</hull>
+        <lenght>306.5 m</lenght>
+        <tonnage>67,500 t</tonnage>
+        <year>2012</year>
+    </aircraft>
+    <aircraft id="54585">
+        <name>Charles de Gaulle</name>
+        <country>France</country>
+        <hull>R91</hull>
+        <lenght>269 m</lenght>
+        <tonnage>42,500 t</tonnage>
+        <year>2001</year>
+    </aircraft>
+    <aircraft id="10285">
+        <name>Queen Elizabeth</name>
+        <country>United Kingdom</country>
+        <hull>R08</hull>
+        <lenght>280 m </lenght>
+        <tonnage>65,000 t</tonnage>
+        <year>2017</year>
+    </aircraft>
+</aircrafts>

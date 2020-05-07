@@ -1,0 +1,51 @@
+<yachts>
+    <title>List of motor yachts by length</title>
+    <yacht>
+        <name>REV Ocean</name>
+        <length>181.5 m</length>
+        <build>2019</build>
+        <owner>Kjell Inge Røkke</owner>
+        <builder>Fincantieri</builder>
+        <country>Norway</country>
+    </yacht>
+    <yacht>
+        <name>Azzam</name>
+        <length>179.7 m</length>
+        <build>2013</build>
+        <owner>Khalifa bin Zayed Al Nahyan</owner>
+        <builder>Lürssen</builder>
+        <country>Germany</country>
+    </yacht>
+    <yacht>
+        <name>Fulk Al Salamah</name>
+        <length>164 m</length>
+        <build>2016</build>
+        <owner>Omani Royal Family</owner>
+        <builder>Mariotti</builder>
+        <country>Italy</country>
+    </yacht>
+    <yacht>
+        <name>Eclipse</name>
+        <length>162.50 m</length>
+        <build>2009</build>
+        <owner>Roman Abramovich</owner>
+        <builder>Blohm + Voss</builder>
+        <country>Germany</country>
+    </yacht>
+    <yacht>
+        <name>Dubai</name>
+        <length>162 m</length>
+        <build>2006</build>
+        <owner>Mohammed bin Rashid Al Maktoum</owner>
+        <builder>Blohm + Voss / Lürssen</builder>
+        <country>Germany</country>
+    </yacht>
+    <yacht>
+        <name>Dilbar</name>
+        <length>156 m</length>
+        <build>2016</build>
+        <owner>Alisher Usmanov</owner>
+        <builder>Lürssen</builder>
+        <country>Germany</country>
+    </yacht>
+</yachts>

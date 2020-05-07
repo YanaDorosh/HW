@@ -1,34 +1,38 @@
 package com.solvd.menu;
 
-import com.solvd.constatnts.IConstants;
-import com.solvd.placeCollections.Port;
+import com.solvd.placeCollections.Roadstead;
 import com.solvd.ships.civil.SailingBoat;
 import com.solvd.utils.PropertiesIO;
 
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
-public class SailingBoatMenu implements IConstants {
+public class SailingBoatMenu {
 
     private MenuMethods methods = new MenuMethods();
     private PropertiesIO propertiesIO = new PropertiesIO();
     private Scanner sc = new Scanner(System.in);
-    private Port port = new Port();
+    private Roadstead roadstead = new Roadstead();
     private MainMenu mainMenu = new MainMenu();
     private int sail;
-    private int ton;
+    private String type;
     private SailingBoat sailingBoat;
 
     public void chooseAction() {
         methods.chooseAction();
-        if (methods.action == 1) {
-            executeMapMenu(port);
-        } else {
-            for (int i = 1; i <= 3; i++) {
-                System.out.println(propertiesIO.getValueFromProperties(PATH3, String.valueOf(i)));
-            }
-            mainMenu.choosePlace();
+        switch (methods.action) {
+            case 1:
+                executeMapMenu(roadstead);
+                break;
+            case 2:
+                methods.fileIO.readFromFile(methods.propertiesIO.getValueFromProperties(6));
+                break;
+            default:
+                System.out.println("enter correct number");
+                chooseAction();
+                break;
         }
+
     }
 
     /**
@@ -36,27 +40,28 @@ public class SailingBoatMenu implements IConstants {
      * the functions of adding items, deleting and displaying information
      */
 
-    public void executeMenu(Port port) {
+    public void executeMenu(Roadstead roadstead) {
 
         int menu2 = sc.nextInt();
         switch (menu2) {
             case 0:
-                executeMapMenu(port);
+                executeMapMenu(roadstead);
                 methods.menuChoice();
-                executeMenu(port);
+                executeMenu(roadstead);
                 break;
             case 1:
-                deletingMap(port);
+                deletingMap(roadstead);
                 methods.menuChoice();
-                executeMenu(port);
+                executeMenu(roadstead);
                 break;
             case 2:
-                port.printInfoColection(port.getSailingBoatMap().values());
+                roadstead.printInfoColection(roadstead.getSailingBoatMap().values());
                 methods.menuChoice();
-                executeMenu(port);
+                executeMenu(roadstead);
                 break;
             case 3:
-                propertiesIO.setValueToProperties(PATHSECOND, String.valueOf(port.key), port.getSailingBoatMap().values());
+                methods.fileIO.writeToFile(methods.propertiesIO.getValueFromProperties(1),
+                        roadstead.getSailingBoatMap().values());
             case 4:
                 methods.mainMenu.choosePlace();
                 break;
@@ -66,7 +71,7 @@ public class SailingBoatMenu implements IConstants {
                 break;
             default:
                 System.out.println("enter correct number");
-                executeMenu(port);
+                executeMenu(roadstead);
                 sc.close();
         }
     }
@@ -75,23 +80,25 @@ public class SailingBoatMenu implements IConstants {
      * Method pass objects to collections and re-implement the second menu of choosing actions
      */
 
-    public void executeMapMenu(Port port) {
+    public void executeMapMenu(Roadstead roadstead) {
 
         methods.loopNumberOfShips();
         for (int i = 1; i <= methods.ships; i++) {
             methods.getInfoMenu();
-            createObjectMap(port);
+            createObjectMap(roadstead);
         }
         methods.menuChoice();
-        executeMenu(port);
+        executeMenu(roadstead);
     }
 
     /**
      * Methods create objects for collections
      */
 
-    public void createObjectMap(Port port) {
+    public void createObjectMap(Roadstead roadstead) {
         try {
+            System.out.print("enter type -               ");
+            type = sc.next();
             System.out.print("enter number of sails -    ");
             sail = sc.nextInt();
             System.out.println("___________________________________________________" +
@@ -101,17 +108,17 @@ public class SailingBoatMenu implements IConstants {
             sail = 0;
             System.out.println("Sails:" + sail);
         }
-        sailingBoat = new SailingBoat(methods.buoyancy, methods.size, methods.speed, sail);
-        port.setSailigBoat(sailingBoat);
+        sailingBoat = new SailingBoat(methods.buoyancy, methods.size, methods.speed, type, sail);
+        roadstead.setSailigBoat(sailingBoat);
     }
 
     /**
      * Methods implement deleting items from collections
      */
 
-    public void deletingMap(Port port) {
+    public void deletingMap(Roadstead roadstead) {
         methods.deleteAndCatch();
-        port.removeSailingBoat(methods.delete - 1);
+        roadstead.removeSailingBoat(methods.delete - 1);
     }
 
 }

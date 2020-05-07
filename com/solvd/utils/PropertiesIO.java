@@ -1,32 +1,35 @@
 package com.solvd.utils;
 
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.util.Collection;
 import java.util.Properties;
 
 public class PropertiesIO {
 
-    public String getValueFromProperties(String path, String key) {
+    private static String separator = File.separator;
+    private static String PATH = "src/res/files/path/path.properties";
+
+    public String getValueFromProperties(int key) {
         Properties properties = new Properties();
         FileInputStream inputStream = null;
         try {
-            inputStream = new FileInputStream(path);
+            inputStream = new FileInputStream(PATH);
             properties.load(inputStream);
             inputStream.close();
-            return properties.getProperty(key);
+            return properties.getProperty(String.valueOf(key));
         } catch (IOException e) {
             e.printStackTrace();
         }
         return "default";
     }
 
-    public void setValueToProperties(String path, String key, Collection<?> value) {
+    public void setValueToProperties(int key, String value) {
         Properties properties = new Properties();
         try {
-            FileOutputStream outputStream = new FileOutputStream(path);
-            properties.setProperty(key, String.valueOf(value));
+            FileOutputStream outputStream = new FileOutputStream(PATH);
+            properties.setProperty(String.valueOf(key), String.valueOf(value));
             properties.store(outputStream, "");
             outputStream.close();
         } catch (IOException e) {

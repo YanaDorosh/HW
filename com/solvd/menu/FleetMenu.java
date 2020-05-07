@@ -1,18 +1,15 @@
 package com.solvd.menu;
 
-import com.solvd.constatnts.IConstants;
 import com.solvd.placeCollections.Fleet;
-import com.solvd.placeCollections.Port;
+import com.solvd.placeCollections.Roadstead;
 import com.solvd.ships.navy.military.Military;
 import com.solvd.ships.navy.military.Submarine;
-import com.solvd.utils.FileIO;
 
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
-public class FleetMenu implements IConstants {
+public class FleetMenu  {
 
-    private FileIO fileIO = new FileIO();
     private MenuMethods methods = new MenuMethods();
     private MainMenu mainMenu = new MainMenu();
     private Fleet fleet = new Fleet();
@@ -29,13 +26,22 @@ public class FleetMenu implements IConstants {
      */
     public void chooseAction() {
         methods.chooseAction();
-        if (methods.action == 1) {
-            executeFleetMenu(fleet);
-        } else {
-            fileIO.readFromFile(PATH);
-            mainMenu.choosePlace();
+        switch (methods.action) {
+            case 1:
+                executeFleetMenu(fleet);
+                break;
+            case 2:
+               if (mainMenu.militaryShip == 1)
+                    methods.fileIO.readFromFile(methods.propertiesIO.getValueFromProperties(4));
+                else {
+                    methods.fileIO.readFromFile(methods.propertiesIO.getValueFromProperties(5));
+                }
+                break;
+            default:
+                System.out.println("enter correct number");
+                chooseAction();
+                break;
         }
-
     }
 
     public void executeMenu(Fleet fleet) {
@@ -63,9 +69,11 @@ public class FleetMenu implements IConstants {
                 break;
             case 3:
                 if (mainMenu.militaryShip == 1) {
-                    fileIO.writeToFile(PATH, fleet.getMilitaryList());
+                    methods.fileIO.writeToFile(methods.propertiesIO.getValueFromProperties(1),
+                            fleet.getMilitaryList());
                 } else {
-                    fileIO.writeToFile(PATH, fleet.getSubmarineList());
+                   methods.fileIO.writeToFile(methods.propertiesIO.getValueFromProperties(1),
+                           fleet.getSubmarineList());
                 }
             case 4:
                 methods.mainMenu.choosePlace();
@@ -134,7 +142,7 @@ public class FleetMenu implements IConstants {
         fleet.removeMilitary(methods.delete - 1);
     }
 
-    public void executeArrayMenu2(Port port) {
+    public void executeArrayMenu2(Roadstead roadstead) {
         methods.loopNumberOfShips();
         for (int i = 1; i <= methods.ships; i++) {
             methods.getInfoMenu();

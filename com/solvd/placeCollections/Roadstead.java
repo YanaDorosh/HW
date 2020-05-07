@@ -10,7 +10,7 @@ import com.solvd.ships.navy.military.Military;
 
 import java.util.*;
 
-public class Port {
+public class Roadstead {
 
     private List<Military> militaryList = new ArrayList<>();
     private LinkedList<Civil> linkedListCivils = new LinkedList<>();
@@ -23,7 +23,7 @@ public class Port {
 
     public int key = 0;
 
-    public Port() {
+    public Roadstead() {
 
     }
 

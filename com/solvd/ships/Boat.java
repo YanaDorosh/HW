@@ -30,7 +30,7 @@ public abstract class Boat implements IConstants {
     }
 
     public int convertSpeed() {
-        return speed * KNOT;
+        return KNOT/speed  ;
     }
 
     public final String getInfoBoat() {

@@ -1,0 +1,36 @@
+<classifications>
+    <classification>
+        <title>By vehicle</title>
+        <type_1>self-propelled</type_1>
+        <type_2>non-self-propelled</type_2>
+    </classification>
+    <classification>
+        <title>By way of movement</title>
+        <type_1>Floating above water</type_1>
+        <type_2>On the surface of the water</type_2>
+        <type_3>Under water</type_3>
+    </classification>
+    <classification>
+        <title>By condition of the hull</title>
+        <type_1>With a rigid hull</type_1>
+        <type_2>With an elastic hull</type_2>
+        <type_3>With an inflatable hull</type_3>
+    </classification>
+    <classification>
+        <title>By condition of the hull</title>
+        <type_1>Steel</type_1>
+        <type_2>From light metal alloys</type_2>
+        <type_3>Plastic</type_3>
+        <type_4>Wooden</type_4>
+        <type_5>Reinforced concrete</type_5>
+        <type_6>From elastic materials</type_6>
+        <type_7>Composite</type_7>
+    </classification>
+    <classification>
+        <title>According to the principle of the main power plant, driven into motion</title>
+        <type_1>Steamboats</type_1>
+        <type_2>Motor ships</type_2>
+        <type_3>Electric turbo diesel engines</type_3>
+        <type_4>Gas ducts</type_4>
+    </classification>
+</classifications>

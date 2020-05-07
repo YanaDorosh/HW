@@ -9,7 +9,7 @@ import java.util.Collection;
 import java.util.List;
 
 public class Fleet {
-    Port port = new Port();
+    Roadstead roadstead = new Roadstead();
     List<Military> militaryList = new ArrayList<>();
     List<Submarine> submarineList = new ArrayList<>();
 

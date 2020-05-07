@@ -1,19 +1,20 @@
 package com.solvd.menu;
 
-import com.solvd.constatnts.IConstants;
-import com.solvd.placeCollections.Port;
+import com.solvd.placeCollections.Roadstead;
 import com.solvd.ships.civil.service.servicetype.Fishing;
 import com.solvd.utils.FileIO;
+import com.solvd.utils.PropertiesIO;
 
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
-public class FishingMenu implements IConstants {
+public class FishingMenu  {
 
     private MenuMethods methods = new MenuMethods();
     private FileIO fileIO = new FileIO();
+    private PropertiesIO propertiesIO = new PropertiesIO();
     private Scanner sc = new Scanner(System.in);
-    private Port port = new Port();
+    private Roadstead roadstead = new Roadstead();
     private MainMenu mainMenu = new MainMenu();
     private Fishing fishing;
     private String classification;
@@ -22,11 +23,17 @@ public class FishingMenu implements IConstants {
 
     public void chooseAction() {
         methods.chooseAction();
-        if (methods.action == 1) {
-            executeSetMenu(port);
-        } else {
-            fileIO.readFromFile(PATH);
-            mainMenu.choosePlace();
+        switch (methods.action) {
+            case 1:
+                executeSetMenu(roadstead);
+                break;
+            case 2:
+                fileIO.readFromFile(propertiesIO.getValueFromProperties(3));
+                break;
+            default:
+                System.out.println("enter correct number");
+                chooseAction();
+                break;
         }
     }
 
@@ -35,27 +42,27 @@ public class FishingMenu implements IConstants {
      * the functions of adding items, deleting and displaying information
      */
 
-    public void executeMenu(Port port) {
+    public void executeMenu(Roadstead roadstead) {
 
         int menu2 = sc.nextInt();
         switch (menu2) {
             case 0:
-                executeSetMenu(port);
+                executeSetMenu(roadstead);
                 methods.menuChoice();
-                executeMenu(port);
+                executeMenu(roadstead);
                 break;
             case 1:
-                deletingSet(port);
+                deletingSet(roadstead);
                 methods.menuChoice();
-                executeMenu(port);
+                executeMenu(roadstead);
                 break;
             case 2:
-                port.printInfoColection(port.getFishingSet());
+                roadstead.printInfoColection(roadstead.getFishingSet());
                 methods.menuChoice();
-                executeMenu(port);
+                executeMenu(roadstead);
                 break;
             case 3:
-                fileIO.writeToFile(PATH, port.getFishingSet());
+                fileIO.writeToFile(propertiesIO.getValueFromProperties(1), roadstead.getFishingSet());
             case 4:
                 methods.mainMenu.choosePlace();
                 break;
@@ -65,7 +72,7 @@ public class FishingMenu implements IConstants {
                 break;
             default:
                 System.out.println("enter correct number");
-                executeMenu(port);
+                executeMenu(roadstead);
                 sc.close();
         }
 
@@ -75,23 +82,22 @@ public class FishingMenu implements IConstants {
      * Method pass objects to collections and re-implement the second menu of choosing actions
      */
 
-    public void executeSetMenu(Port port) {
+    public void executeSetMenu(Roadstead roadstead) {
 
         methods.loopNumberOfShips();
         for (int i = 1; i <= methods.ships; i++) {
             methods.getInfoMenu();
-            createObjectSet(port);
+            createObjectSet(roadstead);
         }
         methods.menuChoice();
-        executeMenu(port);
+        executeMenu(roadstead);
     }
-
 
     /**
      * Methods create objects for collections
      */
 
-    public void createObjectSet(Port port) {
+    public void createObjectSet(Roadstead roadstead) {
         System.out.print("enter the classification - ");
         classification = sc.next();
 
@@ -106,7 +112,7 @@ public class FishingMenu implements IConstants {
         System.out.println("___________________________________________________" +
                 "______________________________________________");
         fishing = new Fishing(methods.buoyancy, methods.size, methods.speed, classification, ton);
-        port.setFishingSet(fishing);
+        roadstead.setFishingSet(fishing);
 
     }
 
@@ -114,8 +120,8 @@ public class FishingMenu implements IConstants {
      * Methods implement deleting items from collections
      */
 
-    public void deletingSet(Port port) {
+    public void deletingSet(Roadstead roadstead) {
         methods.deleteAndCatch();
-        port.removeFishing(methods.delete - 1);
+        roadstead.removeFishing(methods.delete - 1);
     }
 }

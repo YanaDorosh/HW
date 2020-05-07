@@ -5,7 +5,7 @@ import com.solvd.typeOfMovement.Engines.INuclear;
 public class Submarine extends Military implements INuclear {
 
     private String armament;
-    private int army = 250;
+    private int army;
     private int range = 5;
     private int hulls = 2;
 
@@ -41,6 +41,11 @@ public class Submarine extends Military implements INuclear {
     public String getInfoSubmarine() {
         return "Submarine" + getInfoMilitary() + getInfoNuclearEngine();
 
+    }
+
+    @Override
+    public String toString() {
+        return getInfoSubmarine();
     }
 
     @Override

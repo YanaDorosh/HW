@@ -1,0 +1,42 @@
+<liners>
+    <liner>
+        <name>RMS Queen Mary 2</name>
+        <year>2003</year>
+        <status>In service</status>
+    </liner>
+    <liner>
+        <name>MS Mikhail Lermontov</name>
+        <year>1970</year>
+        <status>Preserved as a museum/hotel ship in Dubai</status>
+    </liner>
+    <liner>
+        <name>MS Mikhail Lermontov</name>
+        <year>1970</year>
+        <status>Struck rocks and sank on February 16, 1986 near Marlborough Sounds</status>
+    </liner>
+    <liner>
+        <name>SS Queen Elizabeth 2</name>
+        <year>1967</year>
+        <status>Preserved as a museum/hotel ship in Dubai</status>
+    </liner>
+    <liner>
+        <name>SS Raffaello</name>
+        <year>1963</year>
+        <status>Partially sank in 1983</status>
+    </liner>
+    <liner>
+        <name>SS Michelangelo</name>
+        <year>1962</year>
+        <status>Scrapped in 1991</status>
+    </liner>
+    <liner>
+        <name>SS Northern Star</name>
+        <year>1961</year>
+        <status>Scrapped in 1975</status>
+    </liner>
+    <liner>
+        <name>SS Antilles</name>
+        <year>1953</year>
+        <status>Caught fire, and sank after hitting a reef on January 8, 1971</status>
+    </liner>
+</liners>

@@ -11,7 +11,7 @@ public class Military extends Boat implements INaval, IEngines, IRangeOfBattle {
     private int army;
     private double range = 23.6;
     private int hulls = 7;
-    private String engine = " is used nuclear or motor ";
+    private String engine = "    Is used nuclear or motor ";
 
 
     public Military() {

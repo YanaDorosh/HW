@@ -1,0 +1,53 @@
+<vessels>
+    <groupe>
+        <owner>Daewoo Shipbuilding and Marine Engineering</owner>
+        <vessele>
+            <name yard_number="1201">Ore Brasil</name>
+            <operator>China Merchants Energy Shipping</operator>
+            <year>2011</year>
+            <status>In service</status>
+            <imo_number>9488918</imo_number>
+        </vessele>
+        <vessele>
+            <name yard_number="1202">Shandong Da De</name>
+            <operator>Bank of Communications</operator>
+            <year>2011</year>
+            <status>In service</status>
+            <imo_number>9572329</imo_number>
+        </vessele>
+    </groupe>
+    <groupe>
+        <owner>STX Offshore and Shipbuilding</owner>
+        <vessele>
+            <name yard_number="1701">Sea Beijing</name>
+            <operator>Pan Ocean</operator>
+            <year>2011</year>
+            <status>In service</status>
+            <imo_number>9575448</imo_number>
+        </vessele>
+        <vessele>
+            <name yard_number="1702">Sea Qingdao</name>
+            <operator>Pan Ocean</operator>
+            <year>2012</year>
+            <status>In service</status>
+            <imo_number>9575450</imo_number>
+        </vessele>
+    </groupe>
+    <groupe>
+        <owner>Jiangsu Rongsheng Heavy Industries</owner>
+        <vessele>
+            <name yard_number="H1105">Sea Beijing</name>
+            <operator>China Merchants Energy Shipping</operator>
+            <year>2011</year>
+            <status>In service</status>
+            <imo_number>9522972</imo_number>
+        </vessele>
+        <vessele>
+            <name yard_number="H1128">Saham Max</name>
+            <operator>Oman Shipping Company</operator>
+            <year>2013</year>
+            <status>In service</status>
+            <imo_number>9566526</imo_number>
+        </vessele>
+    </groupe>
+</vessels>
